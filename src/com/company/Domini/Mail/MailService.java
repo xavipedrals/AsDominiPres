@@ -10,6 +10,7 @@ import java.util.Properties;
  */
 public class MailService {
     public static void main(String[] args) {
+        //TODO Falta trure tot de la funcio main
         String username = "projecte.as.grup.emx@gmail.com";
         String password = "1597535emx";
         String destinatari = "xavi.pedrals@gmail.com";
