@@ -1,0 +1,11 @@
+package com.company.Domini.DataInterface;
+
+import com.company.Domini.Partida;
+
+/**
+ * Created by marcos on 13/06/2015.
+ */
+public interface IControlPartida {
+    public Partida getPartida(int idPartida);
+    public Partida setPartida(Partida p);
+}
