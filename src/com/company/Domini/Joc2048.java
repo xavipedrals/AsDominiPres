@@ -8,6 +8,17 @@ public class Joc2048 {
     static private Partida partidaActual;
     static private Jugador jugadorActual;
 
+    /**Implementacio de possible singleton**/
+    private static Joc2048 joc2048 = new Joc2048();
+    /* A private Constructor prevents any other
+    * class from instantiating.
+    */
+    private Joc2048(){ }
+    /* Static 'instance' method */
+    public static Joc2048 getInstance( ) {
+        return joc2048;
+    }
+    /**Fi**/
 
     private static void increment(){
         ++idProximaPartida;
