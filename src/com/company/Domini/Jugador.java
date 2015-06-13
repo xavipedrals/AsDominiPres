@@ -33,4 +33,7 @@ public class Jugador extends UsuariRegistrat{
     public void setEmail(String email) {
         this.email = email;
     }
+
+
+
 }

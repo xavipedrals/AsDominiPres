@@ -10,8 +10,8 @@ import java.util.ArrayList;
 public interface ICtrlJugador {
     public ArrayList<Jugador> tots();
 
-    public Jugador getJugador(String name,String mail);
+    public Jugador getJugador(String name);
 
-    public Jugador setJugador(String name,String mail);
+    public Jugador setJugador(String name);
 
 }

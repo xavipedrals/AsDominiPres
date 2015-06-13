@@ -1,4 +1,4 @@
-package com.company.Domini.Transactions.Utility;
+package com.company.Utility;
 
 /**
  * Created by marcos on 13/06/2015.

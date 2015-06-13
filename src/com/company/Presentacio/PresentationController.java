@@ -1,6 +1,6 @@
 package com.company.Presentacio;
 
-import com.company.Domini.UseCases.JugarPartidaCaseController;
+import com.company.Domini.UseCases.JugarPartidaUseCaseController;
 
 /**
  * Created by marcos on 13/06/2015.
@@ -10,15 +10,20 @@ import com.company.Domini.UseCases.JugarPartidaCaseController;
 public class PresentationController {
 
 
+    private static JugarPartidaUseCaseController jp;
 
-    private JugarPartidaCaseController jp;
-
-
-
+    private static JugarPartidaView jpv;
 
     //TODO FUNCIONS RELACIONADES AMB EVENTS QUE SERAN CRIDATS DESDE LA VISTA
 
     public static void prOkIniciaSessio(String user, String pwd){
+        try {
+            //Aquí se gestiona el posible error de la db.
+            jp.ferAutenticacio(user,pwd);
+        } catch (Exception e) {
+            //TODO imprimir mensaje de error
+            e.printStackTrace();
+        }
 
     }
 

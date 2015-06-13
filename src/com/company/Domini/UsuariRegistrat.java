@@ -5,9 +5,6 @@ package com.company.Domini;
  */
 public class UsuariRegistrat {
     private String nom;
-
-
-
     private String cognom;
     private String username;
     private String pwd;
