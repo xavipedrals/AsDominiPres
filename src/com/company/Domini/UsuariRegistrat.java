@@ -55,4 +55,14 @@ public class UsuariRegistrat {
         this.pwd = pwd;
     }
 
+    public void update(){
+
+    }
+    public void insert(){
+        System.out.println("Partida usuari registrat");
+    }
+
+    public void remove(){
+
+    }
 }

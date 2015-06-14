@@ -12,6 +12,4 @@ public interface ICtrlCasella {
 
     public Casella getCasella(int idPartida, int numFila, int numCol);
 
-    public Casella setCasella(int idPartida, int numFila, int numCol);
-
 }

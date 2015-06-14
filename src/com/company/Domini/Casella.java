@@ -56,4 +56,14 @@ public class Casella {
     public void setP(Partida p) {
         this.p = p;
     }
+    public void update(){
+
+    }
+    public void insert(){
+        System.out.println("Casella inserted");
+    }
+
+    public void remove(){
+
+    }
 }

@@ -20,7 +20,7 @@ public class Partida {
 
 
     public Partida(){
-    
+
     }
 
     public int getIdPartida() {
@@ -75,7 +75,7 @@ public class Partida {
 
     }
     public void insert(){
-
+        System.out.println("Partida inserted");
     }
 
     public void remove(){

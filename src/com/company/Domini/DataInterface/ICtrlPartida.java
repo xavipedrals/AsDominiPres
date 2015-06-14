@@ -7,5 +7,4 @@ import com.company.Domini.Partida;
  */
 public interface ICtrlPartida {
     public Partida getPartida(int idPartida);
-    public Partida setPartida(Partida p);
 }

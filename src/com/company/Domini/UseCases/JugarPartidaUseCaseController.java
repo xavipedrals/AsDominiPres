@@ -16,6 +16,7 @@ import java.util.List;
  */
 public class JugarPartidaUseCaseController {
     private Jugador jugadorActual;
+    private Partida partidaActual;
 
     public JugarPartidaUseCaseController(){
 
@@ -44,8 +45,6 @@ public class JugarPartidaUseCaseController {
 
 
     public Partida crearPartida(){
-        ICtrlPartida partidaCtrl = CtrlDataFactory.getCtrlPartida();
-        partidaCtrl.setPartida(new Partida());
         Partida nova = new Partida();
             nova.setCasellaList(generarTaulell());
             nova.setEstaAcabada(false);
@@ -54,6 +53,7 @@ public class JugarPartidaUseCaseController {
             nova.setPuntuacio(0);
             nova.setIdPartida(Joc2048.getIdAndIncrement());
         nova.insert();
+        partidaActual = nova;
         return nova;
     }
 

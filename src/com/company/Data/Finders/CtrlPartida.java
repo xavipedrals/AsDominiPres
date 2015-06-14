@@ -18,8 +18,5 @@ public class CtrlPartida implements ICtrlPartida {
         return null;
     }
 
-    @Override
-    public Partida setPartida(Partida p) {
-        return null;
-    }
+
 }

@@ -9,6 +9,7 @@ import java.util.Properties;
  * Created by xavivaio on 13/06/2015.
  */
 public class MailService {
+
     public static void main(String[] args) {
         //TODO Falta trure tot de la funcio main
         String username = "projecte.as.grup.emx@gmail.com";

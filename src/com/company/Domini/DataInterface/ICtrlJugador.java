@@ -12,6 +12,5 @@ public interface ICtrlJugador {
 
     public Jugador getJugador(String name);
 
-    public Jugador setJugador(String name);
 
 }

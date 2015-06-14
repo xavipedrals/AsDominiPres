@@ -34,6 +34,14 @@ public class Jugador extends UsuariRegistrat{
         this.email = email;
     }
 
+    public void update(){
 
+    }
+    public void insert(){
+        System.out.println("Jugador inserted");
+    }
 
+    public void remove(){
+
+    }
 }
