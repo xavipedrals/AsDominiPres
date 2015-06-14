@@ -5,4 +5,6 @@ package com.company.Domini.Transactions;
  */
 public abstract class Transaction {
     public abstract void executar() throws Exception;
+
+
 }

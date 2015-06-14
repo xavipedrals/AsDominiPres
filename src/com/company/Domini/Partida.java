@@ -18,6 +18,11 @@ public class Partida {
 
     private List<Casella> casellaList;
 
+
+    public Partida(){
+        this.idPartida = Joc2048.getIdAndIncrement();
+    }
+
     public int getIdPartida() {
         return idPartida;
     }
