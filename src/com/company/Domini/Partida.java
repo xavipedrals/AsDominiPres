@@ -20,7 +20,7 @@ public class Partida {
 
 
     public Partida(){
-        this.idPartida = Joc2048.getIdAndIncrement();
+    
     }
 
     public int getIdPartida() {

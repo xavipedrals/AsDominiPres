@@ -1,18 +1,15 @@
 package com.company.Domini.UseCases;
 
 import com.company.Data.CtrlDataFactory;
+import com.company.Domini.*;
 import com.company.Domini.DataInterface.ICtrlJugador;
 import com.company.Domini.DataInterface.ICtrlPartida;
 import com.company.Domini.DataInterface.ICtrlUsuariRegistrat;
-import com.company.Domini.Joc2048;
-import com.company.Domini.Jugador;
-import com.company.Domini.Partida;
-import com.company.Domini.Transactions.TxFerMoviment;
-import com.company.Domini.Transactions.TxObtenirRanking;
-import com.company.Domini.UsuariRegistrat;
+import com.company.Domini.EstrategiaRanking.MillorPuntuacio;
 import com.company.Utility.Pair;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by marcos on 13/06/2015.
@@ -49,14 +46,23 @@ public class JugarPartidaUseCaseController {
     public Partida crearPartida(){
         ICtrlPartida partidaCtrl = CtrlDataFactory.getCtrlPartida();
         partidaCtrl.setPartida(new Partida());
+        Partida nova = new Partida();
+            nova.setCasellaList(generarTaulell());
+            nova.setEstaAcabada(false);
+            nova.setEstaGuanyada(false);
+            nova.setEstrategiaRanking(new MillorPuntuacio());
+            nova.setPuntuacio(0);
+            nova.setIdPartida(Joc2048.getIdAndIncrement());
+        nova.insert();
+        return nova;
+    }
 
-
-
-        return null;
+    private List<Casella> generarTaulell() {
+        return new ArrayList<Casella>();
     }
 
     //Esto tiene que devolver un arraylist o algo
-    public String ferMoviment(){
+    public String ferMoviment(String mov, Partida p){
 
 
 
