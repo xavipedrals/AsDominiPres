@@ -26,6 +26,10 @@ public class Main {
                 if (op == '2'){
                     PresentationController.getInstance().inicia();
                 }
+                if (op == '3'){
+                    PresentationController.getInstance().inicia();
+                    PresentationController.getInstance().STUBRanking();
+                }
                 else {
                     System.out.println("Otra opción");
                 }

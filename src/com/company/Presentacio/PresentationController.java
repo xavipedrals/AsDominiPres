@@ -2,6 +2,8 @@ package com.company.Presentacio;
 
 import com.company.Domini.UseCases.JugarPartidaUseCaseController;
 
+import java.util.ArrayList;
+
 /**
  * Created by marcos on 13/06/2015.
  */
@@ -91,5 +93,9 @@ public class PresentationController {
     public static void prRankingMenuPrincipal() {
 
 
+    }
+
+    public static void STUBRanking(){
+        jugarPartidaFrame.mostraRanking(new ArrayList<>());
     }
 }
