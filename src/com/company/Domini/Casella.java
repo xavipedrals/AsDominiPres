@@ -13,8 +13,11 @@ public class Casella {
     private Partida p;
 
 
-    public Casella(){
-
+    public Casella(int numFila, int numColumna, int valor, Partida p){
+        this.numFila = numFila;
+        this.numColumna = numColumna;
+        this.valor = valor;
+        this.p = p;
     }
 
     public int getIdPartida() {

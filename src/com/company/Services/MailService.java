@@ -1,4 +1,4 @@
-package com.company.Services;
+package com.company.Domini.Mail;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -9,10 +9,17 @@ import java.util.Properties;
  * Created by xavivaio on 13/06/2015.
  */
 public class MailService {
+    public static void main(String[] args) {
+        //TODO Falta trure tot de la funcio main
+        String username = "projecte.as.grup.emx@gmail.com";
+        String password = "1597535emx";
+        String destinatari = "esteve.torrents@gmail.com";
+        String asunto = "Hola hola";
+        int puntuacio = 100;
+        String contingutMail = "Hola Crac" +
+                "\n\n Firmat: emailDummy";
 
-    public void enviaMail(String dest, int punts) throws MessagingException {
-        final String username = "projecte.as.grup.emx@gmail.com";
-        final String password = "1597535emx";
+
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.socketFactory.port", "465");
@@ -20,10 +27,6 @@ public class MailService {
                 "javax.net.ssl.SSLSocketFactory");
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.port", "465");
-
-        String asunto = "JOC2048 -";
-        String contingutMail = "La teva puntuacio es de " + punts + "." +
-                "\n\n Firmat: Servei de correu de 2048.";
 
         Session session = Session.getDefaultInstance(props,
                 new javax.mail.Authenticator() {
@@ -33,13 +36,13 @@ public class MailService {
                 });
 
         try {
+
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(username));
             message.setRecipients(Message.RecipientType.TO,
-                    InternetAddress.parse(dest));
+                    InternetAddress.parse(destinatari));
             message.setSubject(asunto);
             message.setText(contingutMail);
-            System.out.println("Transport send");
 
             Transport.send(message);
 
