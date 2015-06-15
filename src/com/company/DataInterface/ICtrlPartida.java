@@ -7,4 +7,8 @@ import com.company.Domini.Partida;
  */
 public interface ICtrlPartida {
     public Partida getPartida(int idPartida);
+
+    public Partida createPartida(int idPartida, boolean estaAcabada, boolean estaGuanyada, int puntuacio, String username);
+
+    public void savePartida(Partida partida);
 }

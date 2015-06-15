@@ -16,10 +16,10 @@ public class DriverHibernateHeper {
 
     public static void main(final String[] args) throws Exception {
 
-        ArrayList<Pair> arrayList = HibernateHelper.getRankingmillorsPuntuacionsMitjanes();
-        for (Pair p : arrayList){
-            System.out.print(p.getUser() + " " + p.getPuntuacio() + "\n");
-        }
+//        ArrayList<Pair> arrayList = HibernateHelper.getRankingmillorsPuntuacionsMitjanes();
+//        for (Pair p : arrayList){
+//            System.out.print(p.getUser() + " " + p.getPuntuacio() + "\n");
+//        }
 
 //        ArrayList<Jugador> arrayList = (ArrayList<Jugador>) HibernateHelper.getRankingmillorsPuntuacions();
 //        for(Jugador j : arrayList){
