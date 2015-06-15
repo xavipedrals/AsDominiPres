@@ -7,9 +7,35 @@
     <rowspec value="top:4dlu:noGrow"/>
     <rowspec value="center:d:grow"/>
     <rowspec value="top:4dlu:noGrow"/>
-    <rowspec value="center:d:grow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:4dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:4dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:4dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:4dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:4dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
     <rowspec value="top:4dlu:noGrow"/>
     <rowspec value="center:d:grow"/>
+    <colspec value="fill:d:grow"/>
+    <colspec value="left:4dlu:noGrow"/>
+    <colspec value="fill:d:grow"/>
+    <colspec value="left:4dlu:noGrow"/>
+    <colspec value="fill:d:grow"/>
+    <colspec value="left:4dlu:noGrow"/>
+    <colspec value="fill:max(d;4px):noGrow"/>
+    <colspec value="left:4dlu:noGrow"/>
+    <colspec value="fill:max(d;4px):noGrow"/>
+    <colspec value="left:4dlu:noGrow"/>
+    <colspec value="fill:d:grow"/>
+    <colspec value="left:4dlu:noGrow"/>
+    <colspec value="fill:max(d;4px):noGrow"/>
+    <colspec value="left:4dlu:noGrow"/>
+    <colspec value="fill:max(d;4px):noGrow"/>
+    <colspec value="left:4dlu:noGrow"/>
     <colspec value="fill:d:grow"/>
     <colspec value="left:4dlu:noGrow"/>
     <colspec value="fill:d:grow"/>
@@ -23,7 +49,7 @@
     <children>
       <component id="98b21" class="javax.swing.JTable" binding="table1" default-binding="true">
         <constraints>
-          <grid row="2" column="0" row-span="1" col-span="5" vsize-policy="6" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
+          <grid row="2" column="4" row-span="1" col-span="13" vsize-policy="6" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="50"/>
           </grid>
           <forms defaultalign-horz="false" defaultalign-vert="false"/>
@@ -32,7 +58,7 @@
       </component>
       <component id="88ac8" class="javax.swing.JTable" binding="table2" default-binding="true">
         <constraints>
-          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+          <grid row="4" column="8" row-span="1" col-span="5" vsize-policy="6" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="50"/>
           </grid>
           <forms defaultalign-horz="false" defaultalign-vert="false"/>
@@ -44,25 +70,90 @@
       </component>
       <vspacer id="31909">
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="5" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="2" row-span="1" col-span="17" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
           <forms defaultalign-vert="false"/>
         </constraints>
       </vspacer>
-      <component id="cd18f" class="javax.swing.JButton" binding="button1" default-binding="true">
+      <vspacer id="b00">
         <constraints>
-          <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="12" column="8" row-span="7" col-span="5" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <forms defaultalign-vert="false"/>
+        </constraints>
+      </vspacer>
+      <hspacer id="375c2">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <forms defaultalign-horz="false"/>
+        </constraints>
+      </hspacer>
+      <hspacer id="2fd84">
+        <constraints>
+          <grid row="2" column="20" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <forms defaultalign-horz="false"/>
+        </constraints>
+      </hspacer>
+      <component id="76302" class="javax.swing.JButton" binding="UPButton" default-binding="true">
+        <constraints>
+          <grid row="6" column="8" row-span="1" col-span="5" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
           <forms defaultalign-horz="false"/>
         </constraints>
         <properties>
-          <text value="Button"/>
+          <text value="UP"/>
         </properties>
       </component>
-      <vspacer id="b00">
+      <component id="9803" class="javax.swing.JButton" binding="DOWNButton" default-binding="true">
         <constraints>
-          <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-          <forms defaultalign-vert="false"/>
+          <grid row="10" column="8" row-span="1" col-span="5" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <forms defaultalign-horz="false"/>
         </constraints>
-      </vspacer>
+        <properties>
+          <text value="DOWN"/>
+        </properties>
+      </component>
+      <component id="49289" class="javax.swing.JTextArea" binding="textArea1" default-binding="true">
+        <constraints>
+          <grid row="8" column="10" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="50"/>
+          </grid>
+          <forms defaultalign-horz="false" defaultalign-vert="false"/>
+        </constraints>
+        <properties>
+          <editable value="false"/>
+          <enabled value="true"/>
+          <focusable value="false"/>
+          <visible value="false"/>
+        </properties>
+      </component>
+      <component id="95422" class="javax.swing.JButton" binding="LEFTButton" default-binding="true">
+        <constraints>
+          <grid row="8" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <forms defaultalign-horz="false"/>
+        </constraints>
+        <properties>
+          <text value="LEFT"/>
+        </properties>
+      </component>
+      <component id="788d3" class="javax.swing.JButton" binding="RIGHTButton" default-binding="true">
+        <constraints>
+          <grid row="8" column="12" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <forms defaultalign-horz="false"/>
+        </constraints>
+        <properties>
+          <text value="RIGHT"/>
+        </properties>
+      </component>
+      <hspacer id="48f39">
+        <constraints>
+          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <forms defaultalign-horz="false"/>
+        </constraints>
+      </hspacer>
+      <hspacer id="eb2ca">
+        <constraints>
+          <grid row="2" column="18" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <forms defaultalign-horz="false"/>
+        </constraints>
+      </hspacer>
     </children>
   </grid>
 </form>
