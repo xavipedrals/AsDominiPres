@@ -21,8 +21,9 @@ public class Partida {
     private Casella casellaList[][];
 
 
-    private void acabaPartida(Jugador jugadorActiual) {
-        if (jugadorActiual.getMillorPuntuacio() < puntuacio) jugadorActiual.setMillorPuntuacio(puntuacio);
+    private void acabaPartida(Jugador jugadorActual) {
+        if (jugadorActual.getMillorPuntuacio() < puntuacio) jugadorActual.setMillorPuntuacio(puntuacio);
+        jugadorActual.afegeixIdPartidaAcabada(idPartida);
     }
 
 
