@@ -66,13 +66,17 @@ public class Driver {
 
             switch (aux){
                 case ("11"):
-                    dc.crearPartida(0);
-                    dc.crearPartida(1);
-                    dc.crearPartida(2);
-                    dc.crearPartida(3);
-
-                    dc.createUsuariRegistrat("Xavi", "Pedrals", "xavi.pedrals", "1234");
-                    dc.createJugador("xavi.pedrals", "xavi.pedrals@gmail.com", 2048);
+//                    dc.crearPartida(0);
+//                    dc.crearPartida(1);
+//                    dc.crearPartida(2);
+//                    dc.crearPartida(3);
+//
+//                    dc.createUsuariRegistrat("Xavi", "Pedrals", "xavi.pedrals", "1234");
+//                    dc.createJugador("xavi.pedrals", "xavi.pedrals@gmail.com", 2048);
+                    ArrayList<Casella> arrayList = (ArrayList<Casella>) dc.getCaselles(1);
+                    for (Casella c : arrayList){
+                        System.out.print(c.getNumerofila() + " " + "\n");
+                    }
                     break;
                 case ("1"):
                     id = dc.crearPartida();
@@ -164,15 +168,15 @@ public class Driver {
                     }
                     break;
                 case("8"):
-                    //Llistar partides
-                    System.out.println("La llista de les partides actuals es: ");
-                    List<Partida> l2 = dc.getPartides();
-                    if(l2 != null) {
-                        for (Partida partida : l2) {
-                            System.out.println("Partida: " + partida.getIdpartida() + " puntuació: " + partida.getPuntuacio());
-                        }
-                    }
-                    else System.out.println("No hi ha partides");
+//                    //Llistar partides
+//                    System.out.println("La llista de les partides actuals es: ");
+//                    //List<Partida> l2 = dc.getPartides();
+//                    if(l2 != null) {
+//                        for (Partida partida : l2) {
+//                            System.out.println("Partida: " + partida.getIdpartida() + " puntuació: " + partida.getPuntuacio());
+//                        }
+//                    }
+//                    else System.out.println("No hi ha partides");
                     break;
                 case("9"):
                     System.out.println("Escriu l'id de la partida de la qual vols consultar la informació i les caselles");
@@ -284,6 +288,19 @@ public class Driver {
             return caselladb;
         }
 
+        public List getCaselles(int idPartida){
+            session.beginTransaction();
+            String hql = "from " + Casella.class.getName() + " c  where c.idpartida = :arg";
+            List casellaList = session.createQuery(hql)
+                    .setParameter("arg", idPartida)
+                    .list();
+            session.getTransaction().commit();
+
+            session.close();
+
+            return casellaList;
+        }
+
         public boolean deleteCasella(String id, String fila, String col){
             boolean b = false;
             if (getPartida(id) != null){
@@ -350,11 +367,11 @@ public class Driver {
             return b;
         }
 
-        public List<Partida> getPartides() {
-            //Retorna un llistat de totes les partides a la base de dades
-            List<Partida> aux = (List<Partida>) session.createQuery("from Partida").list();
-            return aux;
-        }
+//        public List<Partida> getPartides() {
+//            //Retorna un llistat de totes les partides a la base de dades
+//            List<Partida> aux = (List<Partida>) session.createQuery("from Partida").list();
+//            return aux;
+//        }
 
         public List<Casella> getCaselles(String id) {
             //Donada la id de partida retorna totes les caselles
