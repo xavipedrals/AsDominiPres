@@ -103,7 +103,7 @@ public class JugarPartidaUseCaseController {
 
     public ArrayList<Pair> obtenirRanking(){
         //Agafem la estrategia i li passem la partida per fer la consulta.
-        partidaActual.getEstrategiaRanking().obtenirRanking(partidaActual);
+        partidaActual.getEstrategiaRanking().obtenirRanking();
         return null;
     }
 

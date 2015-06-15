@@ -21,6 +21,11 @@ public class Partida {
     private Casella casellaList[][];
 
 
+    private void acabaPartida(Jugador jugadorActiual) {
+        if (jugadorActiual.getMillorPuntuacio() < puntuacio) jugadorActiual.setMillorPuntuacio(puntuacio);
+    }
+
+
     public Partida(){
 
     }
@@ -110,6 +115,8 @@ public class Partida {
             for (int j = 0; j < 3; j++) {
                 if (casellaList[i][j].getValor() == casellaList[i][j+1].getValor()) {
                     casellaList[i][j].dobleValor();
+                    puntuacio += casellaList[i][j].getValor();
+                    if (casellaList[i][j].getValor() == 2048) estaGuanyada = true;
                     k = j+1;
                     while (k < 3) {
                         casellaList[i][k].setValor(casellaList[i][k+1].getValor());
@@ -142,6 +149,8 @@ public class Partida {
             for (int j = 3; j > 0; j--) {
                 if (casellaList[i][j].getValor() == casellaList[i][j-1].getValor()) {
                     casellaList[i][j].dobleValor();
+                    puntuacio += casellaList[i][j].getValor();
+                    if (casellaList[i][j].getValor() == 2048) estaGuanyada = true;
                     k = j-1;
                     while (k > 0) {
                         casellaList[i][k].setValor(casellaList[i][k-1].getValor());
@@ -174,6 +183,8 @@ public class Partida {
             for (int j = 0; j < 3; j++) {
                 if (casellaList[j][i].getValor() == casellaList[j+1][i].getValor()) {
                     casellaList[j][i].dobleValor();
+                    puntuacio += casellaList[j][i].getValor();
+                    if (casellaList[j][i].getValor() == 2048) estaGuanyada = true;
                     k = j+1;
                     while (k < 3) {
                         casellaList[k][i].setValor(casellaList[k+1][i].getValor());
@@ -206,6 +217,8 @@ public class Partida {
             for (int j = 3; j > 0; j--) {
                 if (casellaList[j][i].getValor() == casellaList[j-1][i].getValor()) {
                     casellaList[j][i].dobleValor();
+                    puntuacio += casellaList[j][i].getValor();
+                    if (casellaList[j][i].getValor() == 2048) estaGuanyada = true;
                     k = j-1;
                     while (k > 0) {
                         casellaList[k][i].setValor(casellaList[k-1][i].getValor());
@@ -218,8 +231,16 @@ public class Partida {
     }
 
     public ArrayList<Integer> actualitza(Jugador jugadorActual) {
+        if (getCasellesAmbNumero().size() == 16 || estaGuanyada) estaAcabada = true;
         ArrayList<Integer> result = new ArrayList<Integer>();
-        
-        return null;
+        if (estaGuanyada) result.add(1);
+        else result.add(0);
+        if (estaAcabada) result.add(1);
+        else result.add(0);
+        result.add(puntuacio);
+        result.addAll(getCasellesAmbNumero());
+        if (estaAcabada) acabaPartida(jugadorActual);
+        return result;
     }
+
 }
