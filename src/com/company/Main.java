@@ -22,6 +22,9 @@ public class Main {
                     ServiceLayer s = new ServiceLayer();
                     s.enviaMail(destinatari, punts);
                 }
+                if (op == '2'){
+
+                }
                 else {
                     System.out.println("Otra opción");
                 }

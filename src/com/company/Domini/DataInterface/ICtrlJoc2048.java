@@ -1,7 +1,6 @@
 package com.company.Domini.DataInterface;
 
 import com.company.Domini.Joc2048;
-import com.company.Domini.Usuariregistrat;
 
 /**
  * Created by marcos on 13/06/2015.
