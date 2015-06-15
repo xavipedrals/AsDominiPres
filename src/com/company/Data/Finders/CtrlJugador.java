@@ -26,9 +26,4 @@ public class CtrlJugador implements ICtrlJugador{
         //Jugador jugadorDB = (Jugador) session.get(Jugador.CLASS,name) ejemplo llamada a DB ????
         return new Jugador();
     }
-
-    @Override
-    public Jugador setJugador(String name) {
-        return null;
-    }
 }

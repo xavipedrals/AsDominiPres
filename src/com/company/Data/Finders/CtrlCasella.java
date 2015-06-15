@@ -26,8 +26,5 @@ public class CtrlCasella implements ICtrlCasella{
         return null;
     }
 
-    @Override
-    public Casella setCasella(int idPartida, int numFila, int numCol) {
-        return null;
-    }
+
 }
