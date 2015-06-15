@@ -17,6 +17,10 @@ public class JugarPartidaUseCaseController {
     private Jugador jugadorActual;
     private Partida partidaActual;
 
+    private int rand(int min, int max){
+        return (int) (min + (Math.random()*max));
+    }
+
     public JugarPartidaUseCaseController(){
 
     }
@@ -43,7 +47,7 @@ public class JugarPartidaUseCaseController {
     }
 
 
-    public Partida crearPartida(){
+    public ArrayList<Integer> crearPartida(){
         Partida nova = new Partida();
             nova.setCasellaList(generarTaulell());
             nova.setEstaAcabada(false);
@@ -51,13 +55,30 @@ public class JugarPartidaUseCaseController {
             nova.setEstrategiaRanking(new MillorPuntuacio());
             nova.setPuntuacio(0);
             nova.setIdPartida(Joc2048.getIdAndIncrement());
-        nova.insert();
+        //nova.insert();
         partidaActual = nova;
-        return nova;
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        result.add(0);
+        result.add(jugadorActual.getMillorPuntuacio());
+        result.addAll(nova.getCasellesAmbNumero());
+        return result;
     }
 
     private List<Casella> generarTaulell() {
-        return new ArrayList<Casella>();
+        ArrayList<Casella> caselles = new ArrayList<Casella>();
+        int a1 = rand(1,2), b1 = rand(1,4), c1 = rand(1,2);
+        int a2 = rand(3,4), b2 = rand(1,4), c2 = rand(1,2);
+        int n = 0;
+        for (int i = 1; i < 5; i++) {
+            for (int j = 1; j < 5; j++) {
+                if (i == a1 && j == b1) n = (c1*2);
+                else if (i == a2 && j == b2) n = (c2*2);
+                Casella c = new Casella(i,j,n,partidaActual);
+                caselles.add(c);
+                n = 0;
+            }
+        }
+        return caselles;
     }
 
     //Esto tiene que devolver un arraylist o algo

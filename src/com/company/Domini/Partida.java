@@ -1,8 +1,10 @@
 package com.company.Domini;
 
 import com.company.Domini.EstrategiaRanking.IEstrategiaRanking;
-import com.company.Utility.DbSession;
+//import com.company.Utility.DbSession;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -71,4 +73,15 @@ public class Partida {
         this.estrategiaRanking = estrategiaRanking;
     }
 
+    public ArrayList<Integer> getCasellesAmbNumero() {
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        for (Casella c : casellaList) {
+            if (c.getValor() != 0) {
+                result.add(c.getNumFila());
+                result.add(c.getNumColumna());
+                result.add(c.getValor());
+            }
+        }
+        return result;
+    }
 }
