@@ -10,7 +10,7 @@ import java.util.ArrayList;
  */
 public class PuntuacioMitjana implements IEstrategiaRanking {
     @Override
-    public ArrayList<Pair> obtenirRanking(Partida p) {
+    public ArrayList<Pair> obtenirRanking() {
         return null;
     }
 }

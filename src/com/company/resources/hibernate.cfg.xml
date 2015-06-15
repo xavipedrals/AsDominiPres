@@ -5,8 +5,6 @@
 <hibernate-configuration>
     <session-factory>
         <!-- Database connection settings -->
-        <property name="connection.username">postgres</property>
-        <property name="connection.password">postgres</property>
         <property name="connection.url">jdbc:postgresql://localhost:5432/postgres</property>
         <property name="connection.driver_class">org.postgresql.Driver</property>
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL9Dialect</property>
@@ -15,6 +13,11 @@
 
         <mapping class="com.company.Domini.Casella"/>
         <mapping class="com.company.Domini.Partida"/>
+        <mapping class="com.company.resources.Casella"/>
+        <mapping class="com.company.resources.Joc2048"/>
+        <mapping class="com.company.resources.Jugador"/>
+        <mapping class="com.company.resources.Partida"/>
+        <mapping class="com.company.resources.Usuariregistrat"/>
 
     </session-factory>
 </hibernate-configuration>
