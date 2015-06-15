@@ -1,10 +1,9 @@
 package com.company.Domini.UseCases;
 
-import com.company.Data.CtrlDataFactory;
+import com.company.DataInterface.CtrlDataFactory;
 import com.company.Domini.*;
-import com.company.Domini.DataInterface.ICtrlJugador;
-import com.company.Domini.DataInterface.ICtrlPartida;
-import com.company.Domini.DataInterface.ICtrlUsuariRegistrat;
+import com.company.DataInterface.ICtrlJugador;
+import com.company.DataInterface.ICtrlUsuariRegistrat;
 import com.company.Domini.EstrategiaRanking.MillorPuntuacio;
 import com.company.Utility.Pair;
 
@@ -30,7 +29,7 @@ public class JugarPartidaUseCaseController {
         if(uReg.getPwd().equals(passwd)){
             System.out.println("pwdCorrecte");
 
-            ICtrlJugador jugadorCtrl = CtrlDataFactory.getCtrlJugador();
+            ICtrlJugador jugadorCtrl = CtrlDataFactory.getInstance().getCtrlJugador();
             //jugadorActual será o bé el jugador que ha iniciat sessió o null.
             jugadorActual= jugadorCtrl.getJugador(userN);
 

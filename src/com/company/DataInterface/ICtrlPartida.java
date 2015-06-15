@@ -1,4 +1,4 @@
-package com.company.Domini.DataInterface;
+package com.company.DataInterface;
 
 import com.company.Domini.Partida;
 

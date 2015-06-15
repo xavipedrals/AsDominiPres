@@ -5,13 +5,12 @@ package com.company.Services;
  */
 public class ServiceLocator {
 
-    private static ServiceLocator singleton;
+    private static ServiceLocator instance;
 
-    /** Implementació del patró Singleton. **/
     public static ServiceLocator getInstance() {
-        if (singleton == null)
-            singleton = new ServiceLocator() {};
-        return singleton;
+        if (instance == null)
+            instance = new ServiceLocator() {};
+        return instance;
     }
 
     public ServiceLocator() {}

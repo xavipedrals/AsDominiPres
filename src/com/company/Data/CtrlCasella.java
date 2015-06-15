@@ -1,7 +1,7 @@
-package com.company.Data.Finders;
+package com.company.Data;
 
 import com.company.Domini.Casella;
-import com.company.Domini.DataInterface.ICtrlCasella;
+import com.company.DataInterface.ICtrlCasella;
 
 import java.util.ArrayList;
 
@@ -10,7 +10,13 @@ import java.util.ArrayList;
  */
 public class CtrlCasella implements ICtrlCasella{
 
-    //TODO ESTO ES EL FINDER DE CASELLA
+    private static CtrlCasella instance;
+    public static CtrlCasella getInstance(){
+        if (instance == null){
+            instance = new CtrlCasella();
+        }
+        return instance;
+    }
 
     public CtrlCasella(){
 

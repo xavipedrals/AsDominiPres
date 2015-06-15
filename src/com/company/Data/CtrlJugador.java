@@ -1,6 +1,6 @@
-package com.company.Data.Finders;
+package com.company.Data;
 
-import com.company.Domini.DataInterface.ICtrlJugador;
+import com.company.DataInterface.ICtrlJugador;
 import com.company.Domini.Jugador;
 
 import java.util.ArrayList;
@@ -10,9 +10,16 @@ import java.util.ArrayList;
  */
 public class CtrlJugador implements ICtrlJugador{
 
-    //TODO COGER LA SESSION Y TRABAJAR AQUÍ. ESTO ES UN FINDER!
-    public CtrlJugador(){
+    private static CtrlJugador instance;
+    public static CtrlJugador getInstance(){
+        if (instance == null){
+            instance = new CtrlJugador();
+        }
+        return instance;
+    }
 
+
+    public CtrlJugador(){
     }
 
     @Override
