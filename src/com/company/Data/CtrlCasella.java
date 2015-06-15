@@ -26,13 +26,12 @@ public class CtrlCasella implements ICtrlCasella{
 
     @Override
     public ArrayList<Casella> getCaselles(int idPartida) {
-
-        return null;
+        return (ArrayList<Casella>) HibernateHelper.getCasellesPartida(idPartida);
     }
 
     @Override
-    public Casella getCasella(int idPartida, int numFila, int numCol) {
-        return null;
+    public Casella getCasella(int idPartida, int numFila, int numColumna) {
+        return HibernateHelper.getCasella(idPartida, numFila, numColumna);
     }
 
 }

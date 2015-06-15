@@ -2,6 +2,7 @@ package com.company.Data;
 
 import com.company.DataInterface.ICtrlPartida;
 import com.company.Domini.Partida;
+import com.company.Utility.HibernateHelper;
 
 /**
  * Created by marcos on 13/06/2015.
@@ -23,7 +24,7 @@ public class CtrlPartida implements ICtrlPartida {
 
     @Override
     public Partida getPartida(int idPartida) {
-        return null;
+        return HibernateHelper.getPartida(idPartida);
     }
 
 

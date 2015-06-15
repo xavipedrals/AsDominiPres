@@ -2,6 +2,7 @@ package com.company.Data;
 
 import com.company.DataInterface.ICtrlUsuariRegistrat;
 import com.company.Domini.Usuariregistrat;
+import com.company.Utility.HibernateHelper;
 
 /**
  * Created by marcos on 13/06/2015.
@@ -22,7 +23,7 @@ public class CtrlUsuariRegistrat implements ICtrlUsuariRegistrat {
 
 
     @Override
-    public Usuariregistrat getUsuariRegistrat(String usern) {
-        return null;
+    public Usuariregistrat getUsuariRegistrat(String username) {
+        return HibernateHelper.getUsuariRegistrat(username);
     }
 }

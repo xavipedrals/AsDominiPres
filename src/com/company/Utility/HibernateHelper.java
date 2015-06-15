@@ -134,7 +134,7 @@ public class HibernateHelper {
         return p;
     }
 
-    private static Casella getCasellaPK(int idPartida, int numeroFila, int numeroColumna){
+    public static Casella getCasella(int idPartida, int numeroFila, int numeroColumna){
         SessionFactory sf = HibernateHelper.getSessionFactory();
         Session session = sf.openSession();
 
@@ -178,6 +178,21 @@ public class HibernateHelper {
         session.close();
 
         return casellaList;
+    }
+
+    public static List getAllJugadors(){
+        SessionFactory sf = HibernateHelper.getSessionFactory();
+        Session session = sf.openSession();
+
+        session.beginTransaction();
+        String hql = "from " + Jugador.class.getName() + " j";
+        List jugadorList = session.createQuery(hql)
+                .list();
+        session.getTransaction().commit();
+
+        session.close();
+
+        return jugadorList;
     }
 
 
