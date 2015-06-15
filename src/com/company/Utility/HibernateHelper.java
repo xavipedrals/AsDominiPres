@@ -11,6 +11,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class HibernateHelper {
@@ -215,6 +216,65 @@ public class HibernateHelper {
 
         return jugadorList;
     }
+
+//    private static List getPartidesJugador(String username){
+//        SessionFactory sf = HibernateHelper.getSessionFactory();
+//        Session session = sf.openSession();
+//
+//        Jugador j = getJugador(username);
+//
+//        session.beginTransaction();
+//        String hql = "from " + Partida.class.getName() + " p  where p.jugadorByUsername = :arg";
+//        List partidaList = session.createQuery(hql)
+//                .setParameter("arg", username)
+//                .list();
+//        session.getTransaction().commit();
+//
+//        session.close();
+//
+//        return partidaList;
+//    }
+//
+//    public static ArrayList<Pair> getRankingmillorsPuntuacionsMitjanes(){
+//        ArrayList<Jugador> jugadorArrayList = (ArrayList<Jugador>) getAllJugadors();
+//        ArrayList<Pair> result = new ArrayList<Pair>();
+//        for (Jugador j : jugadorArrayList){
+//            ArrayList<Partida> partidaArrayList = (ArrayList<Partida>) getPartidesJugador(j.getUsername());
+//            int puntuacioTotal = 0;
+//            for (Partida p : partidaArrayList){
+//                puntuacioTotal += p.getPuntuacio();
+//            }
+//            int avgPuntuacio = puntuacioTotal / partidaArrayList.size();
+//            result.add(new Pair(j.getUsername(), avgPuntuacio));
+//        }
+//
+//        return result;
+//    }
+
+//    public static List getRankingmillorsPuntuacionsMitjanes(){
+//        SessionFactory sf = HibernateHelper.getSessionFactory();
+//        Session session = sf.openSession();
+//
+//        session.beginTransaction();
+//        String hql = "select j.username, AVG(p.puntuacio) from " + Jugador.class.getName() + " j, "+ Partida.class.getName() +" p  " +
+//                "where j.username = p.username and p.estaguanyada = true" +
+//                " group by j.username order by j.millorpuntuacio DESC";
+//        Iterator jugadorList = session.createQuery(hql)
+//                .list()
+//                .iterator();
+//        session.getTransaction().commit();
+//
+//        session.close();
+//
+//        while ( jugadorList.hasNext() ) {
+//            Object[] tuple = (Object[]) jugadorList.next();
+//            System.out.print(tuple.toString()+ "\n");
+//        }
+//
+//        return null;
+//    }
+
+
 
 
 }

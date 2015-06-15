@@ -4,8 +4,8 @@ package com.company.Utility;
  * Created by marcos on 13/06/2015.
  */
 public class Pair {
-        public String user;
-        public int puntuacio;
+        private String user;
+        private int puntuacio;
 
         public Pair(){
 
@@ -23,4 +23,12 @@ public class Pair {
         public void setPuntuacio(int p){
             this.puntuacio = p;
         }
+
+    public String getUser() {
+        return user;
+    }
+
+    public int getPuntuacio() {
+        return puntuacio;
+    }
 }
