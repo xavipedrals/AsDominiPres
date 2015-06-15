@@ -1,8 +1,6 @@
 package com.company;
 
-import com.company.Domini.Casella;
-import com.company.Domini.CasellaPK;
-import com.company.Domini.Partida;
+import com.company.Domini.*;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -73,7 +71,8 @@ public class Driver {
                     dc.crearPartida(2);
                     dc.crearPartida(3);
 
-
+                    dc.createUsuariRegistrat("Xavi", "Pedrals", "xavi.pedrals", "1234");
+                    dc.createJugador("xavi.pedrals", "xavi.pedrals@gmail.com", 2048);
                     break;
                 case ("1"):
                     id = dc.crearPartida();
@@ -228,8 +227,37 @@ public class Driver {
             return true;
         }
 
-//        public boolean createUsuariRegistrat(String nom, String cognom, )
-        //a
+        public boolean createUsuariRegistrat(String nom, String cognom, String username, String password){
+            session.beginTransaction();
+            Usuariregistrat u = new Usuariregistrat();
+            u.setNom(nom);
+            u.setCognom(cognom);
+            u.setPassword(password);
+            u.setUsername(username);
+            session.save(u);
+            session.getTransaction().commit();
+            return true;
+        }
+
+        public Usuariregistrat getUsuariRegistrat(String username){
+            session.beginTransaction();
+            Usuariregistrat u = (Usuariregistrat) session.get(Usuariregistrat.class, username);
+            session.getTransaction().commit();
+            return u;
+        }
+
+        public boolean createJugador(String username, String email, int millorPuntuacio){
+            Usuariregistrat u = getUsuariRegistrat(username);
+            session.beginTransaction();
+            Jugador j = new Jugador();
+            j.setUsername(username);
+            j.setEmail(email);
+            j.setMillorpuntuacio(millorPuntuacio);
+            j.setUsuariregistratByUsername(u);
+            session.save(j);
+            session.getTransaction().commit();
+            return true;
+        }
 
         public Casella getCasella(String id, String fila, String col){
             //retorna una instancia de la casella que hi ha a la bd

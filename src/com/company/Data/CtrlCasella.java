@@ -2,6 +2,7 @@ package com.company.Data;
 
 import com.company.Domini.Casella;
 import com.company.DataInterface.ICtrlCasella;
+import com.company.Utility.HibernateHelper;
 
 import java.util.ArrayList;
 
@@ -22,8 +23,10 @@ public class CtrlCasella implements ICtrlCasella{
 
     }
 
+
     @Override
     public ArrayList<Casella> getCaselles(int idPartida) {
+
         return null;
     }
 
@@ -31,6 +34,5 @@ public class CtrlCasella implements ICtrlCasella{
     public Casella getCasella(int idPartida, int numFila, int numCol) {
         return null;
     }
-
 
 }
