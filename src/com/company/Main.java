@@ -3,6 +3,7 @@ package com.company;
 import com.company.Adapters.AdapterFactory;
 import com.company.Adapters.IMailAdapter;
 import com.company.Adapters.MailAdapter;
+import com.company.Presentacio.PresentationController;
 import com.company.Services.ServiceLayer;
 import com.company.Services.ServiceLocator;
 
@@ -23,7 +24,7 @@ public class Main {
                     s.enviaMail(destinatari, punts);
                 }
                 if (op == '2'){
-
+                    PresentationController.getInstance().inicia();
                 }
                 else {
                     System.out.println("Otra opción");

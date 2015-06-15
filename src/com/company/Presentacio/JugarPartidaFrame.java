@@ -14,34 +14,36 @@ public class JugarPartidaFrame extends JFrame{
 
     private final int xPos = 0;
     private final int yPos = 0;
-    private final int h = 500;
-    private final int w = 800;
+    private final int h = 800;
+    private final int w = 500;
 
 
-    private JugarPartidaTemplate panel;
+    private static JugarPartidaTemplate panel;
 
     public JugarPartidaFrame(){
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(xPos, yPos, h, w);
+        setResizable(false);
+    }
+
+    public void inicia(){
+        setTitle("Inicia sessio");
         panel = new LoginView();
-        setSize(300, 200);
+        setVisible(true);
         setContentPane(panel);
     }
 
-
-
     public void mostraMenuPrincipal(){
-        canviaPanel(new ViewMenuPrincipal());
-
+        canviaPanel(new MenuPrincipalView());
     }
 
     public void mostraMenuPrincipal(String msg){
-        canviaPanel(new ViewMenuPrincipal());
+        canviaPanel(new MenuPrincipalView(msg));
 
     }
 
-    public void mostraPartida(String ESTODEBERIASERINFOPARTIDA){
-        canviaPanel(new ViewPartida());
+    public void mostraPartida(ArrayList<Integer> x){
+        canviaPanel(new PartidaView(x));
 
     }
 
@@ -54,7 +56,7 @@ public class JugarPartidaFrame extends JFrame{
 
 
     public static void mostraMissatge(String txt){
-
+        panel.mostraMissatge(txt);
     }
     public static void actualitzaCaselles(ArrayList<String> ESTOHADESERUNARRAYLISTDE3COSAS){
 
@@ -67,5 +69,4 @@ public class JugarPartidaFrame extends JFrame{
         validate();
         repaint();
     }
-    //TODO EN EL ESQUEMA MOSTRA RANKIGN ESTA REPE
 }

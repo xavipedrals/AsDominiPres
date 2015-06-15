@@ -28,26 +28,24 @@ public class JugarPartidaUseCaseController {
     public void ferAutenticacio(String userN, String passwd) throws Exception{
         ICtrlUsuariRegistrat uRegCtrl = CtrlDataFactory.getCtrlUsuariRegistrat();
         Usuariregistrat uReg = uRegCtrl.getUsuariRegistrat(userN);
-        if(uReg.getPassword().equals(passwd)){
-            System.out.println("pwdCorrecte");
+        if (uReg != null) {
+            if (uReg.getPassword().equals(passwd)) {
+                ICtrlJugador jugadorCtrl = CtrlDataFactory.getInstance().getCtrlJugador();
+                jugadorActual = jugadorCtrl.getJugador(userN);
+                if (jugadorActual == null) throw new Exception("usuariNoJugador");
 
-            ICtrlJugador jugadorCtrl = CtrlDataFactory.getInstance().getCtrlJugador();
-            //jugadorActual será o bé el jugador que ha iniciat sessió o null.
-            jugadorActual= jugadorCtrl.getJugador(userN);
-
-            //TODO això es un comprovació que sobrarà, ja que a excepció ve de la bd.
-            if (jugadorActual== null) throw new Exception("Usuari no jugador");
+            } else {
+                throw new Exception("pwdInconrrecte");
+            }
         }
-        else {
-            System.out.println("pwdIncorrecte");
-            throw new Exception("pwdInconrrecte");
+        else{
+            throw new Exception("usernameNoExisteix");
         }
     }
 
 
     public ArrayList<Integer> crearPartida(){
         Partida nova = new Partida();
-
             nova.setCasellaList(generarTaulell());
             nova.setEstaacabada(false);
             nova.setEstaguanyada(false);
@@ -56,11 +54,14 @@ public class JugarPartidaUseCaseController {
             nova.setIdpartida(Joc2048.getIdAndIncrement());
         //nova.insert();
         partidaActual = nova;
-        ArrayList<Integer> result = new ArrayList<Integer>();
-        result.add(0);
-        result.add(jugadorActual.getMillorpuntuacio());
-        result.addAll(nova.obteCasellesAmbNumero());
-        return result;
+//        ArrayList<Integer> result = new ArrayList<Integer>();
+//        result.add(0);
+//        result.add(jugadorActual.getMillorpuntuacio());
+//        result.addAll(nova.obteCasellesAmbNumero());
+//        //
+        // return result;
+        //TODO QUE NO RETORNE NULL!
+        return null;
     }
 
     private Casella[][] generarTaulell() {

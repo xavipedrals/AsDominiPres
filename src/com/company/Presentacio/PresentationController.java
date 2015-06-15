@@ -8,7 +8,9 @@ import com.company.Domini.UseCases.JugarPartidaUseCaseController;
 
 //CONTROLADOR PRESENTACION
 public class PresentationController {
-
+    final static private String EXC_USERNAME_NO_E = "usernameNoExisteix";
+    final static private String EXC_PWD_INC = "pwdIncorrecte";
+    final static private String EXC_USER_NO_J = "usuariNoJugador";
 
     private static JugarPartidaUseCaseController controladorJugarPartida;
     private static JugarPartidaFrame jugarPartidaFrame;
@@ -26,28 +28,39 @@ public class PresentationController {
     public PresentationController(){
         controladorJugarPartida = new JugarPartidaUseCaseController();
         jugarPartidaFrame = new JugarPartidaFrame();
-        jugarPartidaFrame.mostraMenuPrincipal();
     }
 
-/*
     public void inicia(){
-        jugarPartidaView.mostraMenuPrincipal();
+        jugarPartidaFrame.inicia();
     }
-*/
 
     public static void prOkIniciaSessio(String user, String pwd){
+        jugarPartidaFrame.mostraMenuPrincipal();
+/*
         try {
             //Aquí se gestiona el posible error de la db.
-            controladorJugarPartida.ferAutenticacio(user,pwd);
+            //TODO DESCOMENTAR ESTO PARA QUE EL LOGIN FUNCIONE
+            //controladorJugarPartida.ferAutenticacio(user,pwd);
         } catch (Exception e) {
             //TODO imprimir mensaje de error
-            e.printStackTrace();
-        }
-
+            String except = e.getMessage();
+            switch (except){
+                case EXC_USERNAME_NO_E:
+                    jugarPartidaFrame.mostraMissatge("No existex cap usuari amb aquest username.");
+                    break;
+                case EXC_PWD_INC:
+                    jugarPartidaFrame.mostraMissatge("Password incorrecte.");
+                    break;
+                case EXC_USER_NO_J:
+                    jugarPartidaFrame.mostraMissatge("Usuari no jugador.");
+                    break;
+                default:
+                    jugarPartidaFrame.mostraMissatge("Excepcio no controlada: " + e.toString());
+                    */
     }
 
     public static void prJugarMenuPrincipal(){
-
+        jugarPartidaFrame.mostraPartida(controladorJugarPartida.crearPartida());
     }
 
     public static void prMenuRanking(){
@@ -75,6 +88,8 @@ public class PresentationController {
     }
 
 
+    public static void prRankingMenuPrincipal() {
 
 
+    }
 }
