@@ -10,16 +10,35 @@ import com.company.Domini.UseCases.JugarPartidaUseCaseController;
 public class PresentationController {
 
 
-    private static JugarPartidaUseCaseController jp;
+    private static JugarPartidaUseCaseController controladorJugarPartida;
+    private static JugarPartidaFrame jugarPartidaFrame;
 
-    private static JugarPartidaView jpv;
+    /* Singleton */
+    private static PresentationController instance;
 
-    //TODO FUNCIONS RELACIONADES AMB EVENTS QUE SERAN CRIDATS DESDE LA VISTA
+    public static PresentationController getInstance(){
+        if (instance == null) {
+            instance = new PresentationController();
+        }
+        return instance;
+    }
+
+    public PresentationController(){
+        controladorJugarPartida = new JugarPartidaUseCaseController();
+        jugarPartidaFrame = new JugarPartidaFrame();
+        jugarPartidaFrame.mostraMenuPrincipal();
+    }
+
+/*
+    public void inicia(){
+        jugarPartidaView.mostraMenuPrincipal();
+    }
+*/
 
     public static void prOkIniciaSessio(String user, String pwd){
         try {
             //Aquí se gestiona el posible error de la db.
-            jp.ferAutenticacio(user,pwd);
+            controladorJugarPartida.ferAutenticacio(user,pwd);
         } catch (Exception e) {
             //TODO imprimir mensaje de error
             e.printStackTrace();
