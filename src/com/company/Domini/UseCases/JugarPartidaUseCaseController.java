@@ -64,17 +64,17 @@ public class JugarPartidaUseCaseController {
         return result;
     }
 
-    private List<Casella> generarTaulell() {
-        ArrayList<Casella> caselles = new ArrayList<Casella>();
-        int a1 = rand(1,2), b1 = rand(1,4), c1 = rand(1,2);
-        int a2 = rand(3,4), b2 = rand(1,4), c2 = rand(1,2);
+    private Casella[][] generarTaulell() {
+        Casella caselles[][] = new Casella[4][4];
+        int a1 = rand(0,1), b1 = rand(0,3), c1 = rand(1,2);
+        int a2 = rand(2,3), b2 = rand(0,3), c2 = rand(1,2);
         int n = 0;
-        for (int i = 1; i < 5; i++) {
-            for (int j = 1; j < 5; j++) {
-                if (i == a1 && j == b1) n = (c1*2);
-                else if (i == a2 && j == b2) n = (c2*2);
-                Casella c = new Casella(i,j,n,partidaActual);
-                caselles.add(c);
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (i == a1 && j == b1) n = (c1 * 2);
+                else if (i == a2 && j == b2) n = (c2 * 2);
+                Casella c = new Casella(i, j, n, partidaActual);
+                caselles[i][j] = c;
                 n = 0;
             }
         }
@@ -82,12 +82,23 @@ public class JugarPartidaUseCaseController {
     }
 
     //Esto tiene que devolver un arraylist o algo
-    public String ferMoviment(String mov, Partida p){
-
-
-
-
-        return null;
+    public ArrayList<Integer> ferMoviment(String mov, Partida p){
+        switch (mov) {
+            case "esq":
+                partidaActual.mouEsquerra();
+                break;
+            case "dreta":
+                partidaActual.mouDreta();
+                break;
+            case "amunt":
+                partidaActual.mouAmunt();
+                break;
+            case "avall":
+                partidaActual.mouAvall();
+                break;
+        }
+        ArrayList<Integer> result = partidaActual.actualitza(jugadorActual);
+        return result;
     }
 
     public ArrayList<Pair> obtenirRanking(){

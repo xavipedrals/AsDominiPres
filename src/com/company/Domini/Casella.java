@@ -60,4 +60,7 @@ public class Casella {
         this.p = p;
     }
 
+    public void dobleValor() {
+        valor *= 2;
+    }
 }
