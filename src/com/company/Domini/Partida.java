@@ -280,7 +280,8 @@ public class Partida {
         else result.add(0);
         result.add(puntuacio);
         result.addAll(obteCasellesAmbNumero());
-        if (estaguanyada && (jugadorActual.getMillorpuntuacio() < puntuacio)) jugadorActual.setMillorpuntuacio(puntuacio);
+        if (estaguanyada && (jugadorActual.getMillorpuntuacio() < puntuacio))
+            jugadorActual.setMillorpuntuacio(puntuacio);
         return result;
     }
 

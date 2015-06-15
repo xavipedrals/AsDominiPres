@@ -164,13 +164,13 @@ public class HibernateHelper {
         return j;
     }
 
-    public static List<Casella> getCasellesPartida (int idPartida){
+    public static List getCasellesPartida (int idP){
         //No funca
         SessionFactory sf = HibernateHelper.getSessionFactory();
         Session session = sf.openSession();
 
         session.beginTransaction();
-        List<Casella> casellaList = (List<Casella>) session.createQuery("select c from casella c").list();
+        List casellaList = session.createQuery("select c.numeroFila, c.numeroColumna, c.numero from casella c where c.idPartida = :idP").list();
         session.getTransaction().commit();
 
         session.close();
