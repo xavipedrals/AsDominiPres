@@ -1,39 +1,101 @@
 package com.company.Domini.UseCases;
 
-import com.company.Domini.Partida;
-import com.company.Domini.Transactions.TxFerAutenticacio;
-import com.company.Domini.Transactions.TxFerMoviment;
-import com.company.Domini.Transactions.TxObtenirRanking;
+import com.company.DataInterface.CtrlDataFactory;
+import com.company.Domini.*;
+import com.company.DataInterface.ICtrlJugador;
+import com.company.DataInterface.ICtrlUsuariRegistrat;
+import com.company.Domini.EstrategiaRanking.MillorPuntuacio;
 import com.company.Utility.Pair;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by marcos on 13/06/2015.
  */
 public class JugarPartidaUseCaseController {
+    private Jugador jugadorActual;
+    private Partida partidaActual;
 
-    TxFerAutenticacio autenticacio;
-    TxFerMoviment moviment;
-    TxObtenirRanking ranking;
-
-    public void ferAutenticacio(String user, String pwd) throws Exception{
-        autenticacio = new TxFerAutenticacio();
-        autenticacio.setUserN(user);
-        autenticacio.setPasswd(pwd);
-        autenticacio.executar();
+    private int rand(int min, int max){
+        return (int) (min + (Math.random()*max));
     }
 
-    public Partida crearPartida(){
-        return null;
+    public JugarPartidaUseCaseController(){
+
+    }
+
+
+
+    public void ferAutenticacio(String userN, String passwd) throws Exception{
+        ICtrlUsuariRegistrat uRegCtrl = CtrlDataFactory.getCtrlUsuariRegistrat();
+        UsuariRegistrat uReg = uRegCtrl.getUsuariRegistrat(userN);
+        if(uReg.getPwd().equals(passwd)){
+            System.out.println("pwdCorrecte");
+
+            ICtrlJugador jugadorCtrl = CtrlDataFactory.getInstance().getCtrlJugador();
+            //jugadorActual será o bé el jugador que ha iniciat sessió o null.
+            jugadorActual= jugadorCtrl.getJugador(userN);
+
+            //TODO això es un comprovació que sobrarà, ja que a excepció ve de la bd.
+            if (jugadorActual== null) throw new Exception("Usuari no jugador");
+        }
+        else {
+            System.out.println("pwdIncorrecte");
+            throw new Exception("pwdInconrrecte");
+        }
+    }
+
+
+    public ArrayList<Integer> crearPartida(){
+        Partida nova = new Partida();
+            nova.setCasellaList(generarTaulell());
+            nova.setEstaAcabada(false);
+            nova.setEstaGuanyada(false);
+            nova.setEstrategiaRanking(new MillorPuntuacio());
+            nova.setPuntuacio(0);
+            nova.setIdPartida(Joc2048.getIdAndIncrement());
+        //nova.insert();
+        partidaActual = nova;
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        result.add(0);
+        result.add(jugadorActual.getMillorPuntuacio());
+        result.addAll(nova.getCasellesAmbNumero());
+        return result;
+    }
+
+    private List<Casella> generarTaulell() {
+        ArrayList<Casella> caselles = new ArrayList<Casella>();
+        int a1 = rand(1,2), b1 = rand(1,4), c1 = rand(1,2);
+        int a2 = rand(3,4), b2 = rand(1,4), c2 = rand(1,2);
+        int n = 0;
+        for (int i = 1; i < 5; i++) {
+            for (int j = 1; j < 5; j++) {
+                if (i == a1 && j == b1) n = (c1*2);
+                else if (i == a2 && j == b2) n = (c2*2);
+                Casella c = new Casella(i,j,n,partidaActual);
+                caselles.add(c);
+                n = 0;
+            }
+        }
+        return caselles;
     }
 
     //Esto tiene que devolver un arraylist o algo
-    public String ferMoviment(){
+    public String ferMoviment(String mov, Partida p){
+
+
+
+
         return null;
     }
 
     public ArrayList<Pair> obtenirRanking(){
+
+
+
+
         return null;
     }
+
 }

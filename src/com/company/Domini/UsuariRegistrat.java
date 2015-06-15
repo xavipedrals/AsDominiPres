@@ -54,5 +54,4 @@ public class UsuariRegistrat {
     public void setPwd(String pwd) {
         this.pwd = pwd;
     }
-
 }

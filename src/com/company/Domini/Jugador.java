@@ -34,6 +34,4 @@ public class Jugador extends UsuariRegistrat{
         this.email = email;
     }
 
-
-
 }

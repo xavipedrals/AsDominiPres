@@ -1,13 +1,7 @@
 package com.company.Data;
 
-import com.company.Data.Finders.CtrlCasella;
-import com.company.Data.Finders.CtrlJugador;
-import com.company.Data.Finders.CtrlPartida;
-import com.company.Data.Finders.CtrlUsuariRegistrat;
-import com.company.Domini.DataInterface.ICtrlCasella;
-import com.company.Domini.DataInterface.ICtrlJugador;
-import com.company.Domini.DataInterface.ICtrlPartida;
-import com.company.Domini.DataInterface.ICtrlUsuariRegistrat;
+import com.company.Data.Finders.*;
+import com.company.Domini.DataInterface.*;
 
 /**
  * Created by marcos on 13/06/2015.
@@ -35,4 +29,7 @@ public class CtrlDataFactory {
         return new CtrlCasella();
     }
 
+    public static CtrlJoc2048 getCtrlJoc2048() {
+        return new CtrlJoc2048();
+    }
 }
