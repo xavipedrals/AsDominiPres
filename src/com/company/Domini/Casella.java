@@ -83,8 +83,8 @@ public class Casella {
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "idpartida", referencedColumnName = "idpartida", nullable = false)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idpartida", referencedColumnName = "idpartida", nullable = false, insertable = false, updatable = false)
     public Partida getPartidaByIdpartida() {
         return partidaByIdpartida;
     }
