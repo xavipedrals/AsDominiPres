@@ -12,6 +12,9 @@ public class MillorPuntuacio implements IEstrategiaRanking {
 
     @Override
     public ArrayList<Pair> obtenirRanking(Partida p) {
+        //Aqui aniria el recorrer les taules per a cada jugador
+        //S'ha de cridar a CtrlJugador i a la funció tots que retorna un arraylist, a partir d'aquí es va fent
+
         return null;
     }
 }

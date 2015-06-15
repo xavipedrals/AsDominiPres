@@ -10,5 +10,4 @@ import java.util.ArrayList;
  */
 public interface IEstrategiaRanking {
     public ArrayList<Pair> obtenirRanking(Partida p);
-
 }

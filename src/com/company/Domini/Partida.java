@@ -68,7 +68,9 @@ public class Partida {
     public IEstrategiaRanking getEstrategiaRanking() {
         return estrategiaRanking;
     }
-    
+
+
+
     public void setEstrategiaRanking(IEstrategiaRanking estrategiaRanking) {
         this.estrategiaRanking = estrategiaRanking;
     }
