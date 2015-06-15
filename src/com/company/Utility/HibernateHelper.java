@@ -151,16 +151,22 @@ public class HibernateHelper {
         return c;
     }
 
-    public static Joc2048 getJoc2048(int idPartida){
+    public static Joc2048 getJoc2048(){
+        //TODO: Posar menys guarro
         SessionFactory sf = HibernateHelper.getSessionFactory();
         Session session = sf.openSession();
 
         session.beginTransaction();
-        Joc2048 j = (Joc2048) session.get(Joc2048.class, idPartida);
+        String hql = "from " + Joc2048.class.getName() + " j";
+        List jocList = session.createQuery(hql)
+                .list();
         session.getTransaction().commit();
 
         session.close();
-
+        Joc2048 j = new Joc2048();
+        for(Object o : jocList){
+            j = (Joc2048) o;
+        }
         return j;
     }
 
@@ -186,6 +192,21 @@ public class HibernateHelper {
 
         session.beginTransaction();
         String hql = "from " + Jugador.class.getName() + " j";
+        List jugadorList = session.createQuery(hql)
+                .list();
+        session.getTransaction().commit();
+
+        session.close();
+
+        return jugadorList;
+    }
+
+    public static List getRankingmillorsPuntuacions(){
+        SessionFactory sf = HibernateHelper.getSessionFactory();
+        Session session = sf.openSession();
+
+        session.beginTransaction();
+        String hql = "from " + Jugador.class.getName() + " j  where j.millorpuntuacio <> 0 order by j.millorpuntuacio DESC";
         List jugadorList = session.createQuery(hql)
                 .list();
         session.getTransaction().commit();
