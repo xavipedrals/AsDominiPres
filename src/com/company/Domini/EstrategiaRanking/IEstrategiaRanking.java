@@ -9,5 +9,5 @@ import java.util.ArrayList;
  * Created by marcos on 13/06/2015.
  */
 public interface IEstrategiaRanking {
-    public ArrayList<Pair> obtenirRanking(Partida p);
+    public ArrayList<Pair> obtenirRanking();
 }
