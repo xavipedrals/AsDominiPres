@@ -1,4 +1,4 @@
-package com.company.resources;
+package com.company.Domini;
 
 import javax.persistence.Column;
 import javax.persistence.Id;

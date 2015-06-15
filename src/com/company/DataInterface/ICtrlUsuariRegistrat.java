@@ -1,10 +1,10 @@
 package com.company.DataInterface;
 
-import com.company.Domini.UsuariRegistrat;
+import com.company.Domini.Usuariregistrat;
 
 /**
  * Created by marcos on 13/06/2015.
  */
 public interface ICtrlUsuariRegistrat {
-    public UsuariRegistrat getUsuariRegistrat(String usern);
+    public Usuariregistrat getUsuariRegistrat(String usern);
 }

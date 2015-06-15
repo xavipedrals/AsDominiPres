@@ -1,7 +1,7 @@
 package com.company.Data;
 
 import com.company.DataInterface.ICtrlUsuariRegistrat;
-import com.company.Domini.UsuariRegistrat;
+import com.company.Domini.Usuariregistrat;
 
 /**
  * Created by marcos on 13/06/2015.
@@ -22,7 +22,7 @@ public class CtrlUsuariRegistrat implements ICtrlUsuariRegistrat {
 
 
     @Override
-    public UsuariRegistrat getUsuariRegistrat(String usern) {
+    public Usuariregistrat getUsuariRegistrat(String usern) {
         return null;
     }
 }

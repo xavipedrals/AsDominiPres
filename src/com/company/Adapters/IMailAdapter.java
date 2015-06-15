@@ -5,4 +5,5 @@ package com.company.Adapters;
  */
 public interface IMailAdapter {
     public void enviaMail(String destinatari, int punts);
+    //Envia un mail amb contingut predefinit al destinatari amb el número de punts
 }

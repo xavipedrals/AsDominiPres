@@ -1,4 +1,4 @@
-package com.company.resources;
+package com.company.Domini;
 
 import javax.persistence.*;
 
@@ -6,7 +6,6 @@ import javax.persistence.*;
  * Created by marcos on 15/06/2015.
  */
 @Entity
-@Table(name = "casella", schema = "public", catalog = "postgres")
 @IdClass(CasellaPK.class)
 public class Casella {
     private int idpartida;
@@ -93,4 +92,6 @@ public class Casella {
     public void setPartidaByIdpartida(Partida partidaByIdpartida) {
         this.partidaByIdpartida = partidaByIdpartida;
     }
+
+
 }

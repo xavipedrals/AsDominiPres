@@ -25,12 +25,10 @@ public class JugarPartidaUseCaseController {
 
     }
 
-
-
     public void ferAutenticacio(String userN, String passwd) throws Exception{
         ICtrlUsuariRegistrat uRegCtrl = CtrlDataFactory.getCtrlUsuariRegistrat();
-        UsuariRegistrat uReg = uRegCtrl.getUsuariRegistrat(userN);
-        if(uReg.getPwd().equals(passwd)){
+        Usuariregistrat uReg = uRegCtrl.getUsuariRegistrat(userN);
+        if(uReg.getPassword().equals(passwd)){
             System.out.println("pwdCorrecte");
 
             ICtrlJugador jugadorCtrl = CtrlDataFactory.getInstance().getCtrlJugador();
@@ -49,18 +47,19 @@ public class JugarPartidaUseCaseController {
 
     public ArrayList<Integer> crearPartida(){
         Partida nova = new Partida();
+
             nova.setCasellaList(generarTaulell());
-            nova.setEstaAcabada(false);
-            nova.setEstaGuanyada(false);
+            nova.setEstaacabada(false);
+            nova.setEstaguanyada(false);
             nova.setEstrategiaRanking(new MillorPuntuacio());
             nova.setPuntuacio(0);
-            nova.setIdPartida(Joc2048.getIdAndIncrement());
+            nova.setIdpartida(Joc2048.getIdAndIncrement());
         //nova.insert();
         partidaActual = nova;
         ArrayList<Integer> result = new ArrayList<Integer>();
         result.add(0);
-        result.add(jugadorActual.getMillorPuntuacio());
-        result.addAll(nova.getCasellesAmbNumero());
+        result.add(jugadorActual.getMillorpuntuacio());
+        result.addAll(nova.obteCasellesAmbNumero());
         return result;
     }
 
@@ -73,7 +72,11 @@ public class JugarPartidaUseCaseController {
             for (int j = 0; j < 4; j++) {
                 if (i == a1 && j == b1) n = (c1 * 2);
                 else if (i == a2 && j == b2) n = (c2 * 2);
-                Casella c = new Casella(i, j, n, partidaActual);
+                Casella c = new Casella();
+                c.setNumerofila(i);
+                c.setNumerocolumna(j);
+                c.setNumero(n);
+                c.setPartidaByIdpartida(partidaActual);
                 caselles[i][j] = c;
                 n = 0;
             }
@@ -103,7 +106,7 @@ public class JugarPartidaUseCaseController {
 
     public ArrayList<Pair> obtenirRanking(){
         //Agafem la estrategia i li passem la partida per fer la consulta.
-        partidaActual.getEstrategiaRanking().obtenirRanking();
+        partidaActual.obteEstrategiaRanking().obtenirRanking();
         return null;
     }
 

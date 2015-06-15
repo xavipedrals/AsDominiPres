@@ -5,15 +5,18 @@
 <hibernate-configuration>
     <session-factory>
         <!-- Database connection settings -->
-        <property name="connection.username">postgres</property>
-        <property name="connection.password">postgres</property>
-        <property name="connection.url">jdbc:postgresql://localhost:5432/postgres</property>
+        <property name="connection.url">jdbc:postgresql://localhost:5432/nova</property>
         <property name="connection.driver_class">org.postgresql.Driver</property>
-        <!-- <property name="default_schema" > public </property> -->
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL9Dialect</property>
         <property name="hbm2ddl.auto">update</property>
         <property name="hibernate.current_session_context_class">thread</property>
 
+
         <mapping class="com.company.Domini.Casella"/>
+        <mapping class="com.company.resources.Joc2048"/>
+        <mapping class="com.company.Domini.Jugador"/>
+        <mapping class="com.company.Domini.Partida"/>
+        <mapping class="com.company.Domini.Usuariregistrat"/>
+
     </session-factory>
 </hibernate-configuration>

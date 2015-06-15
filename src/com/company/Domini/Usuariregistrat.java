@@ -1,4 +1,4 @@
-package com.company.resources;
+package com.company.Domini;
 
 import javax.persistence.*;
 
@@ -6,7 +6,6 @@ import javax.persistence.*;
  * Created by marcos on 15/06/2015.
  */
 @Entity
-@Table(name = "usuariregistrat", schema = "public", catalog = "postgres")
 public class Usuariregistrat {
     private String nom;
     private String cognom;

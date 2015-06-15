@@ -1,4 +1,4 @@
-package com.company.resources;
+package com.company.Domini;
 
 import com.company.Domini.EstrategiaRanking.IEstrategiaRanking;
 
@@ -10,7 +10,6 @@ import java.util.Collection;
  * Created by marcos on 15/06/2015.
  */
 @Entity
-@Table(name = "partida", schema = "public", catalog = "postgres")
 public class Partida {
     private int idpartida;
     private Boolean estaacabada;
@@ -21,8 +20,11 @@ public class Partida {
 
     private Casella casellaList[][];
 
-
     private IEstrategiaRanking estrategiaRanking;
+
+    public void setCasellaList(Casella casellaList[][]) {
+        this.casellaList = casellaList;
+    }
 
     @Id
     @Column(name = "idpartida", nullable = false, insertable = true, updatable = true)
