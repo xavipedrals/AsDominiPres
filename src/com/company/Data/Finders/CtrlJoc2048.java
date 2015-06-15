@@ -1,9 +1,7 @@
 package com.company.Data.Finders;
 
 import com.company.Domini.DataInterface.ICtrlJoc2048;
-import com.company.Domini.DataInterface.ICtrlUsuariRegistrat;
 import com.company.Domini.Joc2048;
-import com.company.Domini.UsuariRegistrat;
 
 /**
  * Created by marcos on 13/06/2015.
