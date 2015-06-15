@@ -229,6 +229,7 @@ public class Driver {
         }
 
 //        public boolean createUsuariRegistrat(String nom, String cognom, )
+        //a
 
         public Casella getCasella(String id, String fila, String col){
             //retorna una instancia de la casella que hi ha a la bd
