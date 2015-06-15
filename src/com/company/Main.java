@@ -13,9 +13,6 @@ import java.io.InputStreamReader;
 public class Main {
     //ESTO NO ES NADA AHORA puede servir para tests
     public static void main(String[] args) {
-
-
-
             int op = readOption();
             while (op != '0') {
                 if (op == '1') {
