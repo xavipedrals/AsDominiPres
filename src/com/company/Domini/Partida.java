@@ -71,14 +71,4 @@ public class Partida {
         this.estrategiaRanking = estrategiaRanking;
     }
 
-    public void update(){
-
-    }
-    public void insert(){
-        System.out.println("Partida inserted");
-    }
-
-    public void remove(){
-
-    }
 }
