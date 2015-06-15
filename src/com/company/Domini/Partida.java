@@ -216,6 +216,8 @@ public class Partida {
     }
 
     public ArrayList<Integer> actualitza(Jugador jugadorActual) {
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        
         return null;
     }
 }
