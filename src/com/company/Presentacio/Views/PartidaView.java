@@ -117,10 +117,7 @@ public class PartidaView extends JugarPartidaTemplate{
 
         taulellModel.resetValues();
         for(CasellaScheme cs : p){
-            System.out.println("View fila: " + cs.getRow());
-            System.out.println("View col: " + cs.getCol());
-            System.out.println("View num: " + cs.getNum());
-            taulellModel.setValue(cs.getRow(), cs.getCol(), cs.getNum());
+               taulellModel.setValue(cs.getRow(), cs.getCol(), cs.getNum());
         }
         validate();
         repaint();

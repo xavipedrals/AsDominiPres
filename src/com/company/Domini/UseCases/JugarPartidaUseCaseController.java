@@ -5,12 +5,10 @@ import com.company.Domini.*;
 import com.company.DataInterface.ICtrlUsuariRegistrat;
 import com.company.Domini.EstrategiaRanking.MillorPuntuacio;
 import com.company.Utility.*;
-
+import com.company.Services.ServiceLayer;
 import java.util.ArrayList;
 
-/**
- * Created by marcos on 13/06/2015.
- */
+
 public class JugarPartidaUseCaseController {
     private Jugador jugadorActual;
     private Partida partidaActual;
@@ -103,7 +101,13 @@ public class JugarPartidaUseCaseController {
                 partidaActual.mouAvall();
                 break;
         }
-        return partidaActual.actualitza(jugadorActual);
+        //HibernateHelper.updateCaselles(partidaActual.getCasellaList());
+        InfoPartida act = partidaActual.actualitza(jugadorActual);
+        if (partidaActual.getEstaguanyada()) {
+            //el jugador haguanyat aixi que enviem un mail
+            ServiceLayer.getInstance().enviaMail(jugadorActual.getEmail(), partidaActual.getPuntuacio());
+        }
+        return act;
     }
 
     public ArrayList<Pair> obtenirRanking() throws Exception { //obte el ranking ordenat accedint a la BD
