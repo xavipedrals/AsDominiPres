@@ -99,14 +99,6 @@ public class PartidaView extends JugarPartidaTemplate{
     }
 
 
-
-
-
-
-
-
-
-
     //TODO A STATIC PER PODER ACCEDIR?
     private class myTaulellModel extends AbstractTableModel {
         public Object[][] values = {
@@ -170,9 +162,9 @@ public class PartidaView extends JugarPartidaTemplate{
 
     public void actualitzaCaselles(ArrayList<Integer> info){
         //TODO llamar al hacer movimiento. controller --> actualitza caselles
-    }
 
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
+
+
+
     }
 }
