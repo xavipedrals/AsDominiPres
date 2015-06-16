@@ -28,4 +28,5 @@ public class  JugarPartidaTemplate extends JPanel{
     public void mostraMissatge(String msg){
         messageArea.setText(msg);
     }
+
 }

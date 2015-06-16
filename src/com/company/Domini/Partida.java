@@ -284,9 +284,4 @@ public class Partida {
             jugadorActual.setMillorpuntuacio(puntuacio);
         return result;
     }
-
-
-
-
-
 }

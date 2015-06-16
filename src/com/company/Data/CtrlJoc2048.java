@@ -1,4 +1,4 @@
-package com.company.Data.Finders;
+package com.company.Data;
 
 import com.company.Domini.DataInterface.ICtrlJoc2048;
 import com.company.Domini.Joc2048;

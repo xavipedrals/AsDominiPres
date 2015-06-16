@@ -69,19 +69,19 @@ public class PresentationController {
     }
 
     public static void prDretaJugarPartida(){
-        controladorJugarPartida.ferMoviment("dreta");
+        actualitza(controladorJugarPartida.ferMoviment("dreta"));
     }
 
     public static void prEsquerraJugarPartida(){
-        controladorJugarPartida.ferMoviment("esq");
+        actualitza(controladorJugarPartida.ferMoviment("esq"));
     }
 
     public static void prAmuntJugarPartida(){
-        controladorJugarPartida.ferMoviment("amunt");
+        actualitza(controladorJugarPartida.ferMoviment("amunt"));
     }
 
     public static void prAvallJugarPartida(){
-        controladorJugarPartida.ferMoviment("avall");
+        actualitza(controladorJugarPartida.ferMoviment("avall"));
     }
 
 
@@ -89,8 +89,22 @@ public class PresentationController {
         jugarPartidaFrame.mostraRanking(controladorJugarPartida.obtenirRanking());
     }
 
-    public static void actualitza(){
-            //TODO PARAMETROS DE ESTA LLAMADA???
+    public static void actualitza(ArrayList<Integer> info){
+        int guanyada = info.get(0);
+        int acabada = info.get(1);
+        int puntuacio = info.get(2);
+        if (guanyada == 1 && acabada == 1){
+            jugarPartidaFrame.mostraMenuPrincipal("Has guanyat! La teva puntuació es: " + puntuacio);
+        }
+        else if(guanyada == 0 && acabada == 1){
+            jugarPartidaFrame.mostraMenuPrincipal("Has perdut! :( ");
+        }
+        else{
+            info.remove(0); info.remove(1);
+            jugarPartidaFrame.actualitzaPuntuacio(info.get(0));
+            info.remove(0);
+            jugarPartidaFrame.actualitzaCaselles(info);
+        }
     }
 
     //TODO DELETE

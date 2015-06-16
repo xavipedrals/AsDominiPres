@@ -29,6 +29,6 @@ public class CtrlUsuariRegistrat implements ICtrlUsuariRegistrat {
 
     @Override
     public void createUsuariRegistrat(String nom, String cognom, String username, String password) {
-
+        //TODO SOBRA¿?
     }
 }

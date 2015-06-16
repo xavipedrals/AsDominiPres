@@ -5,6 +5,7 @@ import com.company.Domini.*;
 import com.company.DataInterface.ICtrlJugador;
 import com.company.DataInterface.ICtrlUsuariRegistrat;
 import com.company.Domini.EstrategiaRanking.MillorPuntuacio;
+import com.company.Presentacio.PresentationController;
 import com.company.Utility.Pair;
 
 import java.util.ArrayList;

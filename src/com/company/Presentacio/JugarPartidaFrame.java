@@ -44,26 +44,26 @@ public class JugarPartidaFrame extends JFrame{
 
     public void mostraPartida(ArrayList<Integer> x){
         canviaPanel(new PartidaView(x));
-
     }
 
     public void mostraRanking(ArrayList<Pair> e){
         canviaPanel(new RankingView());
     }
 
-    public static void actualitzaPuntuacio(int Punts){
+    public static void actualitzaPuntuacio(int punts){
+        PartidaView p = (PartidaView)panel;
+        p.actualitzaPuntuacio(punts);
     }
 
 
     public static void mostraMissatge(String txt){
-
         panel.mostraMissatge(txt);
     }
 
 
-
-    public static void actualitzaCaselles(ArrayList<String> ESTOHADESERUNARRAYLISTDE3COSAS){
-
+    public static void actualitzaCaselles(ArrayList<Integer> info){
+        PartidaView p = (PartidaView)panel;
+        p.actualitzaCaselles(info);
     }
 
     private void canviaPanel(JugarPartidaTemplate panel){

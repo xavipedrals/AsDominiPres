@@ -1,11 +1,9 @@
 package com.company.Data;
 
-import com.company.Data.Finders.*;
 import com.company.DataInterface.ICtrlCasella;
 import com.company.DataInterface.ICtrlJugador;
 import com.company.DataInterface.ICtrlPartida;
 import com.company.DataInterface.ICtrlUsuariRegistrat;
-import com.company.Domini.DataInterface.*;
 
 /**
  * Created by marcos on 13/06/2015.

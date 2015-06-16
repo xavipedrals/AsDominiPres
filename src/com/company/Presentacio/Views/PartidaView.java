@@ -21,6 +21,8 @@ public class PartidaView extends JugarPartidaTemplate{
     private JButton RIGHTButton;
     private JButton LEFTButton;
     private JTextArea textArea1;
+    private myPuntuacioModel puntModel;
+    private myTaulellModel taulellModel;
 
     private final String puntuacioAct = "Puntuacio actual: ";
     private final String puntuacioMax = "Puntuacio maxima: ";
@@ -40,7 +42,8 @@ public class PartidaView extends JugarPartidaTemplate{
         leftRenderer.setOpaque(false);
 
 
-        table1.setModel(new myPuntuacioModel());
+        puntModel = new myPuntuacioModel();
+        table1.setModel(puntModel);
         table1.setCellSelectionEnabled(false);
         table1.setRowHeight(15);
 //        table1.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
@@ -53,7 +56,8 @@ public class PartidaView extends JugarPartidaTemplate{
         table1.getColumnModel().getColumn(1).setCellRenderer(leftRenderer);
         table1.setShowGrid(false);
 
-        table2.setModel(new myTaulellModel());
+        taulellModel = new myTaulellModel();
+        table2.setModel(taulellModel);
 
         table2.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
         table2.getColumnModel().getColumn(1).setCellRenderer(centerRenderer);
@@ -97,14 +101,6 @@ public class PartidaView extends JugarPartidaTemplate{
         });
         add(panel1);
     }
-
-
-
-
-
-
-
-
 
 
     //TODO A STATIC PER PODER ACCEDIR?
@@ -161,18 +157,24 @@ public class PartidaView extends JugarPartidaTemplate{
         public void setPuntuacioActual(int p ){
             values[0][1] = p;
         }
-        public void setPuntuacioMaxima(int p){
-            values[1][1] = p;
+        public void setPuntuacioSiMaxima(int p){
+            if(p >= (Integer)values[1][1]){
+                values[1][1] = p;
+            }
         }
     }
 
-
-
-    public void actualitzaCaselles(ArrayList<Integer> info){
-        //TODO llamar al hacer movimiento. controller --> actualitza caselles
+    public void actualitzaPuntuacio(int p){
+        puntModel.setPuntuacioActual(p);
+        puntModel.setPuntuacioSiMaxima(p);
     }
+    public void actualitzaCaselles(ArrayList<Integer> p) {
+        int i, j, k;
+        i = 0;
 
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
+        while(i <= 13){
+            taulellModel.setValue(p.get(i),p.get(i+1),p.get(i+2));
+            i += 3;
+        }
     }
 }
