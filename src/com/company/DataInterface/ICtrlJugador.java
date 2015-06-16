@@ -12,5 +12,7 @@ public interface ICtrlJugador {
 
     public Jugador getJugador(String name);
 
+    public void createJugador(String username, String email, int millorPuntuacio);
 
+    public void saveJugador(Jugador jugador);
 }

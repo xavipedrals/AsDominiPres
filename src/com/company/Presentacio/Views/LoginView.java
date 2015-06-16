@@ -40,7 +40,8 @@ public class LoginView extends JugarPartidaTemplate{
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                PresentationController.getInstance().prOkIniciaSessio(textField1.getText(),textField2.getPassword().toString());
+
+                PresentationController.getInstance().prOkIniciaSessio(textField1.getText(),new String(textField2.getPassword()));
             }
         });
 

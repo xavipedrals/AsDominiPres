@@ -36,17 +36,14 @@ public class PresentationController {
         jugarPartidaFrame.inicia();
     }
 
-    public static void prOkIniciaSessio(String user, String pwd){
-        jugarPartidaFrame.mostraMenuPrincipal();
-/*
+    public static void prOkIniciaSessio(String user, String pwd) {
         try {
-            //Aquí se gestiona el posible error de la db.
-            //TODO DESCOMENTAR ESTO PARA QUE EL LOGIN FUNCIONE
-            //controladorJugarPartida.ferAutenticacio(user,pwd);
+            controladorJugarPartida.ferAutenticacio(user, pwd);
+            jugarPartidaFrame.mostraMenuPrincipal();
         } catch (Exception e) {
             //TODO imprimir mensaje de error
             String except = e.getMessage();
-            switch (except){
+            switch (except) {
                 case EXC_USERNAME_NO_E:
                     jugarPartidaFrame.mostraMissatge("No existex cap usuari amb aquest username.");
                     break;
@@ -58,43 +55,45 @@ public class PresentationController {
                     break;
                 default:
                     jugarPartidaFrame.mostraMissatge("Excepcio no controlada: " + e.toString());
-                    */
+            }
+        }
     }
+
 
     public static void prJugarMenuPrincipal(){
         jugarPartidaFrame.mostraPartida(controladorJugarPartida.crearPartida());
     }
 
     public static void prMenuRanking(){
-
+        jugarPartidaFrame.mostraMenuPrincipal();
     }
 
     public static void prDretaJugarPartida(){
-
+        controladorJugarPartida.ferMoviment("dreta");
     }
 
     public static void prEsquerraJugarPartida(){
-
+        controladorJugarPartida.ferMoviment("esq");
     }
 
     public static void prAmuntJugarPartida(){
-
+        controladorJugarPartida.ferMoviment("amunt");
     }
 
     public static void prAvallJugarPartida(){
+        controladorJugarPartida.ferMoviment("avall");
+    }
 
+
+    public static void prRankingMenuPrincipal() {
+        jugarPartidaFrame.mostraRanking(controladorJugarPartida.obtenirRanking());
     }
 
     public static void actualitza(){
             //TODO PARAMETROS DE ESTA LLAMADA???
     }
 
-
-    public static void prRankingMenuPrincipal() {
-
-
-    }
-
+    //TODO DELETE
     public static void STUBRanking(){
         jugarPartidaFrame.mostraRanking(new ArrayList<>());
     }

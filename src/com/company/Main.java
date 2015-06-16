@@ -23,10 +23,10 @@ public class Main {
                     ServiceLayer s = new ServiceLayer();
                     s.enviaMail(destinatari, punts);
                 }
-                if (op == '2'){
+                else if (op == '2'){
                     PresentationController.getInstance().inicia();
                 }
-                if (op == '3'){
+                else if (op == '3'){
                     PresentationController.getInstance().inicia();
                     PresentationController.getInstance().STUBRanking();
                 }

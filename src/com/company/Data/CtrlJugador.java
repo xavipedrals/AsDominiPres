@@ -33,6 +33,22 @@ public class CtrlJugador implements ICtrlJugador{
         //TODO SI NO EXISTE, LO CREO
         //Jugador jugadorDB = (Jugador) session.get(Jugador.CLASS,name) ejemplo llamada a DB ????
         //return new Jugador();
+        Jugador j = HibernateHelper.getJugador(username);
+        if(j.equals(null)){
+
+        }
         return HibernateHelper.getJugador(username);
     }
+
+    @Override
+    public void createJugador(String username, String email, int millorPuntuacio) {
+
+    }
+
+    @Override
+    public void saveJugador(Jugador jugador) {
+
+    }
+
+
 }
