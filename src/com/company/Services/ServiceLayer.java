@@ -2,11 +2,12 @@ package com.company.Services;
 
 import com.company.Adapters.AdapterFactory;
 
-/**
- * Created by marcos on 15/06/2015.
- */
+
+
+//Implementació del service layer
 public class ServiceLayer {
 
+    /* Singleton */
     private static ServiceLayer instance;
 
     public static ServiceLayer getInstance(){
@@ -16,9 +17,8 @@ public class ServiceLayer {
         return instance;
     }
 
-
-
     public static void enviaMail(String message, int punts){
+        //Demanem al FactoriaAdapter l'adapter que implementa la interfície per enviar el mail.
         AdapterFactory.getInstance().getMailAdapter().enviaMail(message,punts);
     }
 }

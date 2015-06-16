@@ -7,9 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * Created by marcos on 15/06/2015.
- */
+
 public class MenuPrincipalView extends JugarPartidaTemplate{
     private JButton button1;
     private JPanel panel1;

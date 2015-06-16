@@ -1,10 +1,10 @@
 package com.company.Services;
 
-/**
- * Created by marcos on 15/06/2015.
- */
+
+//Service locator
 public class ServiceLocator {
 
+    /* Singleton */
     private static ServiceLocator instance;
 
     public static ServiceLocator getInstance() {
@@ -15,6 +15,7 @@ public class ServiceLocator {
 
     public ServiceLocator() {}
 
+    //Retornem el servei demanat o bé llancem una excepció
     public Object find(String string) throws Exception {
         if(string.equals("mail")) return new MailService();
         else throw new Exception("Unsupported service");

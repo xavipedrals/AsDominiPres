@@ -12,9 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-/**
- * Created by marcos on 15/06/2015.
- */
+
 public class PartidaView extends JugarPartidaTemplate{
     private JPanel panel1;
     private JTable table1;

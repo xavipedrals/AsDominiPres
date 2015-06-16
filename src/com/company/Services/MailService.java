@@ -5,14 +5,12 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
-/**
- * Created by xavivaio on 13/06/2015.
- */
 public class MailService {
-
     public void enviaMail(String dest, int punts) throws MessagingException {
+        //Configuració del servei del mail
         final String username = "projecte.as.grup.emx@gmail.com";
         final String password = "1597535emx";
+
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.socketFactory.port", "465");
@@ -25,6 +23,7 @@ public class MailService {
         String contingutMail = "La teva puntuacio es de " + punts + "." +
                 "\n\n Firmat: Servei de correu de 2048.";
 
+        //Creem una sessió
         Session session = Session.getDefaultInstance(props,
                 new javax.mail.Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
@@ -32,6 +31,7 @@ public class MailService {
                     }
                 });
 
+        //Provem a enviar el missatge
         try {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(username));
@@ -49,7 +49,4 @@ public class MailService {
             throw new RuntimeException(e);
         }
     }
-
-
-
 }
