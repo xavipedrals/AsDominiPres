@@ -34,6 +34,7 @@ public class HibernateHelper {
 
     // Inserta un objecte, si ja existeix tira exec
     public static Object save(Object o) {
+        //System.out.println("Object to string : " + o.toString());
         SessionFactory sf = HibernateHelper.getSessionFactory();
         Session session = sf.openSession();
 

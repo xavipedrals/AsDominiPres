@@ -54,7 +54,7 @@ public class JugarPartidaUseCaseController {
 
     public ArrayList<Integer> crearPartida(){
         Partida nova = new Partida();
-            nova.setCasellaList(generarTaulell());
+            //nova.setCasellaList(generarTaulell());
             nova.setEstaacabada(false);
             nova.setEstaguanyada(false);
             nova.setEstrategiaRanking(new MillorPuntuacio());
@@ -63,6 +63,10 @@ public class JugarPartidaUseCaseController {
             nova.setJugadorByUsername(jugadorActual);
 
         partidaActual = nova;
+        System.out.print(partidaActual.getIdpartida() + "\n");
+        HibernateHelper.save(nova);
+        //Casella[][] casellas = generarTaulell();
+        nova.setCasellaList(generarTaulell());
         HibernateHelper.save(nova);
         ArrayList<Integer> result = new ArrayList<Integer>();
 
@@ -80,17 +84,19 @@ public class JugarPartidaUseCaseController {
         int a1 = rand(0,1), b1 = rand(0,3), c1 = rand(1,2);
         int a2 = rand(2,3), b2 = rand(0,3), c2 = rand(1,2);
         int n = 0;
-        for (int i = 1; i < 4; i++) {
-            for (int j = 1; j < 4; j++) {
+        for (int i = 1; i < 5; i++) {
+            for (int j = 1; j < 5; j++) {
                 if (i == a1 && j == b1) n = (c1 * 2);
                 else if (i == a2 && j == b2) n = (c2 * 2);
                 Casella c = new Casella();
                 c.setNumerofila(i);
                 c.setNumerocolumna(j);
                 c.setNumero(n);
-                c.setPartidaByIdpartida(partidaActual);
-                HibernateHelper.save(c);
-                caselles[i][j] = c;
+                //c.setPartidaByIdpartida(partidaActual);
+                System.out.print(partidaActual.getIdpartida() + "\n");
+                Partida aux = (Partida) HibernateHelper.save(c);
+
+                caselles[i-1][j-1] = c;
                 n = 0;
             }
         }
@@ -117,7 +123,7 @@ public class JugarPartidaUseCaseController {
 
     public ArrayList<Pair> obtenirRanking(){
         //Si no hi ha cap partida actual sera null, per tant per defecte retornem la estrategia de millor puntuació.
-        if (partidaActual == null ) return new MillorPuntuacio().obtenirRanking();
+        if (partidaActual == null) return new MillorPuntuacio().obtenirRanking();
         else return partidaActual.obteEstrategiaRanking().obtenirRanking();
     }
 }

@@ -19,7 +19,7 @@ public class DriverHibernateHeper {
 //        joc2048.setIdpartida(6);
 //        HibernateHelper.save(joc2048);
         jugarPartidaUseCaseController.crearPartida();
-
+        //jugarPartidaUseCaseController.obtenirRanking();
 
     }
 }

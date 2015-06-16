@@ -91,6 +91,7 @@ public class Casella {
 
     public void setPartidaByIdpartida(Partida partidaByIdpartida) {
         this.partidaByIdpartida = partidaByIdpartida;
+
     }
 
 
