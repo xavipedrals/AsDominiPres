@@ -1,12 +1,9 @@
 package com.company.Utility;
 
-import com.company.Domini.Casella;
-
-import java.util.ArrayList;
-
-/**
- * Created by marcos on 16/06/2015.
- */
+/* InfoPartida es una classe que recull dos booleans i una llista de caselles.
+*  Serveix per actualitzar una partida ja creada i permet l'acces fàcil a les dades
+*  a la capa de presentació
+* */
 public class InfoPartida {
     boolean guanyada;
     boolean acabada;

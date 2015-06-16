@@ -1,8 +1,9 @@
 package com.company.Utility;
 
-/**
- * Created by marcos on 16/06/2015.
- */
+/* InfoPartida es una classe que recull una llista de casellesuna  ipuntuació inicial i la millor puntuacio.
+*  Serveix per passar les dades d'una nova partida i permet l'acces a les dades de manera fàcil
+*  a la capa de presentació
+*/
 public class InfoPartidaNova {
     private int millorPuntuacio;
     private Integer puntuacio;

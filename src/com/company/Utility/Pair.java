@@ -1,8 +1,6 @@
 package com.company.Utility;
 
-/**
- * Created by marcos on 13/06/2015.
- */
+
 public class Pair {
         private String user;
         private int puntuacio;

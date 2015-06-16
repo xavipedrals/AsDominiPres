@@ -1,8 +1,8 @@
 package com.company.Utility;
 
-/**
- * Created by marcos on 16/06/2015.
- */
+
+
+/*Correspon a la representació d'una casella per una partida per a que sigui més còmode passar la informació.*/
 public class CasellaScheme {
     private int row;
     private int col;

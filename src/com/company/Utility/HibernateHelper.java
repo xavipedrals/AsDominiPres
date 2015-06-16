@@ -1,9 +1,5 @@
 package com.company.Utility;
 
-/**
- * Created by marcos on 15/06/2015.
- */
-
 import com.company.Domini.*;
 import org.hibernate.Query;
 import org.hibernate.Session;
