@@ -5,11 +5,10 @@ import com.company.Domini.*;
 import com.company.DataInterface.ICtrlJugador;
 import com.company.DataInterface.ICtrlUsuariRegistrat;
 import com.company.Domini.EstrategiaRanking.MillorPuntuacio;
-import com.company.Presentacio.PresentationController;
+import com.company.Utility.HibernateHelper;
 import com.company.Utility.Pair;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by marcos on 13/06/2015.
@@ -60,9 +59,11 @@ public class JugarPartidaUseCaseController {
             nova.setEstaguanyada(false);
             nova.setEstrategiaRanking(new MillorPuntuacio());
             nova.setPuntuacio(0);
-            nova.setIdpartida(Joc2048.getIdAndIncrement());
+            nova.setIdpartida(SingletonJoc2048.getIdAndIncrement());
+            nova.setJugadorByUsername(jugadorActual);
 
         partidaActual = nova;
+        HibernateHelper.save(nova);
         ArrayList<Integer> result = new ArrayList<Integer>();
 
         result.add(0); //puntuacio inicial == 0;
@@ -79,8 +80,8 @@ public class JugarPartidaUseCaseController {
         int a1 = rand(0,1), b1 = rand(0,3), c1 = rand(1,2);
         int a2 = rand(2,3), b2 = rand(0,3), c2 = rand(1,2);
         int n = 0;
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
+        for (int i = 1; i < 4; i++) {
+            for (int j = 1; j < 4; j++) {
                 if (i == a1 && j == b1) n = (c1 * 2);
                 else if (i == a2 && j == b2) n = (c2 * 2);
                 Casella c = new Casella();
@@ -88,6 +89,7 @@ public class JugarPartidaUseCaseController {
                 c.setNumerocolumna(j);
                 c.setNumero(n);
                 c.setPartidaByIdpartida(partidaActual);
+                HibernateHelper.save(c);
                 caselles[i][j] = c;
                 n = 0;
             }

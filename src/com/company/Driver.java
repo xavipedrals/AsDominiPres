@@ -1,6 +1,7 @@
 package com.company;
 
 import com.company.Domini.*;
+import com.company.Presentacio.PresentationController;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -61,10 +62,16 @@ public class Driver {
             System.out.print("9) Llistar partida i les seves caselles" + "\n");
             System.out.print("10) Sortir" + "\n");
             System.out.print("11) Omple BD amb instanciacio de prova" + "\n");
+            System.out.print("12) Omple BD amb instanciacio de prova" + "\n");
 
             String aux = scanner.next();
 
             switch (aux){
+                case ("12"):
+
+                    PresentationController.getInstance();
+                    break;
+
                 case ("11"):
 //                    dc.crearPartida(0);
 //                    dc.crearPartida(1);
