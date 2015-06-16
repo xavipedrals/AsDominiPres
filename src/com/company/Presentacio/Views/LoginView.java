@@ -19,6 +19,7 @@ public class LoginView extends JugarPartidaTemplate{
     private JPasswordField textField2;
 
     public LoginView(){
+        //implementacio del login que crida al domini amb les dades dels camps de text
         //User
         textArea1.setText("Usuari");
         textArea1.setEditable(false);

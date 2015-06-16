@@ -20,6 +20,7 @@ public class MenuPrincipalView extends JugarPartidaTemplate{
     //TODO LISTENERS
 
     public MenuPrincipalView(){
+        //implementacio dels botons jugar i ranking del menu
         button1.setText("Jugar");
         button2.setText("Ranking");
         button1.addActionListener(new ActionListener() {
@@ -41,6 +42,7 @@ public class MenuPrincipalView extends JugarPartidaTemplate{
     }
 
     public MenuPrincipalView(String msg){
+        //definicio dels botons i crides a les funcions
         button1.setText("Jugar");
         button2.setText("Ranking");
 
