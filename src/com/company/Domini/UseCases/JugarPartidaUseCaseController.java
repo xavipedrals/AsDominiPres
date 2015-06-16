@@ -7,7 +7,6 @@ import com.company.Domini.EstrategiaRanking.MillorPuntuacio;
 import com.company.Utility.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * Created by marcos on 13/06/2015.
@@ -30,7 +29,6 @@ public class JugarPartidaUseCaseController {
         Usuariregistrat uReg = uRegCtrl.getUsuariRegistrat(userN);
         if (uReg != null) {
             if (uReg.getPassword().equals(passwd)) {
-                //ICtrlJugador jugadorCtrl = CtrlDataFactory.getInstance().getCtrlJugador();
                 jugadorActual = ICtrlDataFactory.getInstance().getCtrlJugador().getJugador(userN);
                 if (jugadorActual == null) throw new Exception("usuariNoJugador");
             } else {
@@ -81,7 +79,7 @@ public class JugarPartidaUseCaseController {
                 c.setNumero(n);
                 c.setIdpartida(partidaActual.getIdpartida());
                 c.setPartidaByIdpartida(partidaActual);
-                CtrlDataFactory.getInstance().getCtrlCasella().saveCasella(c);
+                ICtrlDataFactory.getInstance().getCtrlCasella().saveCasella(c);
 
                 caselles[i-1][j-1] = c;
                 n = 0;
