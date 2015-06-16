@@ -18,7 +18,7 @@ public class RankingView extends JugarPartidaTemplate{
     private ArrayList<Pair> result;
 
     private void insereixDades() {
-        ArrayList<Pair> r = new ArrayList<Pair>();
+        result = new ArrayList<Pair>();
         for (int i = 0; i < 5; ++i) {
             Pair p = new Pair("Usuari"+i, i*35000);
             result.add(p);
@@ -35,7 +35,6 @@ public class RankingView extends JugarPartidaTemplate{
             listModel1.addElement(p.getUser());
             listModel2.addElement(p.getPuntuacio());
         }
-
         add(panel1);
     }
 }
