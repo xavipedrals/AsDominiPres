@@ -28,12 +28,6 @@ public class JugarPartidaFrame extends JFrame{
 //        setResizable(false);
     }
 
-    public void DEMORanking(){
-        setTitle("Inicia sessio");
-        panel = new RankingView();
-        setVisible(true);
-        setContentPane(panel);
-    }
 
     public void inicia(){
         setTitle("Inicia sessio");

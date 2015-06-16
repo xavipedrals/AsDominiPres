@@ -1,6 +1,8 @@
 package com.company.Presentacio.Views;
 
+import com.company.Domini.Jugador;
 import com.company.Presentacio.PresentationController;
+import com.company.Utility.HibernateHelper;
 import com.company.Utility.Pair;
 
 import javax.swing.*;
@@ -21,20 +23,24 @@ public class RankingView extends JugarPartidaTemplate{
     private JButton menuButton;
     private JTable table1;
     private JTable table2;
-    private ArrayList<Pair> result;
+    private ArrayList<Jugador> result;
     private String list1Data[];
     private String list2Data[];
+    private ArrayList<Pair> res;
+
 
     private void insereixDades() {
-        result = new ArrayList<Pair>();
-        for (int i = 0; i < 5; ++i) {
-            Pair p = new Pair("Usuari"+i, (5-i)*350000);
-            result.add(p);
+        result = (ArrayList<Jugador>)HibernateHelper.getRankingmillorsPuntuacions();
+        res = new ArrayList<Pair>();
+        for (Jugador j : result) {
+            Pair p = new Pair(j.getUsername(), j.getMillorpuntuacio());
+            res.add(p);
         }
+
         list1Data = new String[result.size()];
         list2Data = new String[result.size()];
         int i = 0;
-        for (Pair p : result) {
+        for (Pair p : res) {
             list1Data[i] = p.getUser();
             list2Data[i] = String.valueOf(p.getPuntuacio());
             i++;

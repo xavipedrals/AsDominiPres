@@ -20,16 +20,13 @@ public class Main {
                         PresentationController.getInstance().inicia();
                         break;
                     case '2':
-                        PresentationController.getInstance().DEMOranking();
-                        break;
-                    case '3':
                         System.out.println("Introdueix el mail desti");
                         String x = llegirString();
                         System.out.println("Introdueix la puntuacio");
                         String z = llegirString();
                         int y = Integer.parseInt(z);
                         System.out.println("S'enviarà un correu a " + x + " amb puntuacio " + y);
-                        ServiceLayer.getInstance().enviaMail(x,y);
+                        ServiceLayer.getInstance().enviaMail(x, y);
                         break;
                     default:
                         System.out.println("Otra opción");
@@ -61,8 +58,7 @@ public class Main {
         System.out.println("Menu:");
         System.out.println("0 -> Sortir");
         System.out.println("1 -> Inicia programa");
-        System.out.println("2 -> Prova consulta ranking");
-        System.out.println("3 -> Prova mail service");
+        System.out.println("2 -> Prova mail service");
     }
 
     private static String llegirString(){

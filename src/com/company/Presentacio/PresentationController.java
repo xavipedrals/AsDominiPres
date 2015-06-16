@@ -119,7 +119,4 @@ public class PresentationController {
         }
     }
 
-    public void DEMOranking() {
-        jugarPartidaFrame.DEMORanking();
-    }
 }
