@@ -8,5 +8,5 @@ import com.company.Domini.Usuariregistrat;
 public interface ICtrlUsuariRegistrat {
     public Usuariregistrat getUsuariRegistrat(String usern);
 
-    public void saveUsuariRegistrat(Usuariregistrat usuariregistrat);
+    public void updateUsuariRegistrat(Usuariregistrat usuariregistrat);
 }

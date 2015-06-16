@@ -12,5 +12,5 @@ public interface ICtrlJugador {
 
     public Jugador getJugador(String name);
 
-    public void saveJugador(Jugador jugador);
+    public void updateJugador(Jugador jugador);
 }

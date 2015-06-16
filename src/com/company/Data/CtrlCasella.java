@@ -43,10 +43,10 @@ public class CtrlCasella implements ICtrlCasella{
         return null;
     }
 
-    //Guarda una casellla a la BD
+    //Actualitza una instancia de Casella a la BD
     @Override
-    public void saveCasella(Casella casella) {
-        HibernateHelper.save(casella);
+    public void updateCasella(Casella casella) {
+        HibernateHelper.update(casella);
     }
 
 }

@@ -10,6 +10,7 @@ import java.util.ArrayList;
  * Created by marcos on 13/06/2015.
  */
 //Controlador de la classe Jugador
+//No tenim funcions de crear i guardar jugador perquè el cas d'ús Jugar Partida no les inclou
 public class CtrlJugador implements ICtrlJugador{
 
     private static CtrlJugador instance;
@@ -36,9 +37,9 @@ public class CtrlJugador implements ICtrlJugador{
         return HibernateHelper.getJugador(username);
     }
 
-    //Guarda un Jugador a la BD
+    //Actualitza una instància de jugador a la BD
     @Override
-    public void saveJugador(Jugador jugador) {
+    public void updateJugador(Jugador jugador) {
         HibernateHelper.save(jugador);
     }
 }

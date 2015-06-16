@@ -12,6 +12,7 @@ import com.company.DataInterface.ICtrlUsuariRegistrat;
 public class CtrlDataFactory {
     //TODO: No s'hauria de implementar singleton, com els controladors?
     //TODO: Enlloc de new no hauria de fer Classe.getInstance?
+    //TODO: Tenim dues classes que es diuen igual??
     private static CtrlDataFactory ctrl = new CtrlDataFactory();
 
     public static CtrlDataFactory getInstance() {

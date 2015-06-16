@@ -14,6 +14,6 @@ public interface ICtrlCasella {
 
     public Casella createCasella(int id, int fila, int col, int valor);
 
-    public void saveCasella(Casella casella);
+    public void updateCasella(Casella casella);
 
 }

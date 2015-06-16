@@ -10,5 +10,5 @@ public interface ICtrlPartida {
 
     public Partida createPartida(int idPartida, boolean estaAcabada, boolean estaGuanyada, int puntuacio, String username);
 
-    public void savePartida(Partida partida);
+    public void updatePartida(Partida partida);
 }

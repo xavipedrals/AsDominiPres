@@ -30,13 +30,20 @@ public class CtrlPartida implements ICtrlPartida {
     //Crea una partida i la guarda a la BD
     @Override
     public Partida createPartida(int idPartida, boolean estaAcabada, boolean estaGuanyada, int puntuacio, String username) {
+        Partida p = new Partida();
+        p.setIdpartida(idPartida);
+        p.setEstaacabada(estaAcabada);
+        p.setEstaguanyada(estaGuanyada);
+        p.setPuntuacio(puntuacio);
+        //p.setJugadorByUsername(null);
+        //p.setCasellaList(null);
         return null;
     }
 
-    //
+    //Actualitza una instància de Partida a la BD
     @Override
-    public void savePartida(Partida partida) {
-
+    public void updatePartida(Partida partida) {
+        HibernateHelper.update(partida);
     }
 
 
