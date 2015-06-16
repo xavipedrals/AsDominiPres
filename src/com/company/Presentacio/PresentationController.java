@@ -13,6 +13,7 @@ public class PresentationController {
     final static private String EXC_USERNAME_NO_E = "usernameNoExisteix";
     final static private String EXC_PWD_INC = "pwdIncorrecte";
     final static private String EXC_USER_NO_J = "usuariNoJugador";
+    final static private String EXC_NO_PARTIDES = "noHiHaPartides";
 
     private static JugarPartidaUseCaseController controladorJugarPartida;
     private static JugarPartidaFrame jugarPartidaFrame;
@@ -86,7 +87,18 @@ public class PresentationController {
 
 
     public static void prRankingMenuPrincipal() {
-        jugarPartidaFrame.mostraRanking(controladorJugarPartida.obtenirRanking());
+        try {
+            jugarPartidaFrame.mostraRanking(controladorJugarPartida.obtenirRanking());
+        }catch (Exception e ){
+            String except = e.getMessage();
+            switch (except) {
+                case EXC_NO_PARTIDES:
+                    jugarPartidaFrame.mostraMissatge("No hi ha partides.");
+                    break;
+                default:
+                    jugarPartidaFrame.mostraMissatge("Excepcio no controlada: " + e.toString());
+            }
+        }
     }
 
     public static void actualitza(ArrayList<Integer> info){
@@ -105,5 +117,9 @@ public class PresentationController {
             info.remove(0);
             jugarPartidaFrame.actualitzaCaselles(info);
         }
+    }
+
+    public void DEMOranking() {
+        jugarPartidaFrame.DEMORanking();
     }
 }
