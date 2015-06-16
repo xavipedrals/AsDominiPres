@@ -1,6 +1,5 @@
 package com.company.Domini.EstrategiaRanking;
 
-import com.company.Domini.Partida;
 import com.company.Utility.Pair;
 
 import java.util.ArrayList;

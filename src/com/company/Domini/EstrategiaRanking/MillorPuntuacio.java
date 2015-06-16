@@ -10,6 +10,7 @@ import java.util.ArrayList;
 /**
  * Created by marcos on 13/06/2015.
  */
+//Classe que serveix per obtenir el ranking per estratègia de millor puntuació
 public class MillorPuntuacio implements IEstrategiaRanking {
 
     @Override
