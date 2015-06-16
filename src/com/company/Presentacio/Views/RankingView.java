@@ -24,30 +24,24 @@ public class RankingView extends JugarPartidaTemplate{
     private String list2Data[];
     private ArrayList<Pair> res;
 
-    //TODO passar per parametre
-    private void insereixDades() {
+    private void insereixDades(ArrayList<Pair> j) {
         //consulta a la BD i agafa el ranking ja ordenat
-        ArrayList<Jugador> result = (ArrayList<Jugador>)HibernateHelper.getRankingmillorsPuntuacions();
-        res = new ArrayList<Pair>();
-        for (Jugador j : result) {
-            Pair p = new Pair(j.getUsername(), j.getMillorpuntuacio());
-            res.add(p);
-        }
+
         //posa la info a les files
-        list1Data = new String[result.size()];
-        list2Data = new String[result.size()];
+        list1Data = new String[j.size()];
+        list2Data = new String[j.size()];
         int i = 0;
-        for (Pair p : res) {
+        for (Pair p : j) {
             list1Data[i] = p.getUser();
             list2Data[i] = String.valueOf(p.getPuntuacio());
             i++;
         }
     }
 
-    public RankingView(){
+    public RankingView(ArrayList<Pair> j){
         //ompla les taules amb la info corresponent i les posa no editables
         //tambe defineix el boto menu per retornar
-        insereixDades();
+        insereixDades(j);
         table1.setModel(new myUsuariModel());
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
         centerRenderer.setHorizontalAlignment( JLabel.CENTER );

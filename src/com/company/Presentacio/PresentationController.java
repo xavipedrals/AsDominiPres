@@ -52,7 +52,6 @@ public class PresentationController {
             controladorJugarPartida.ferAutenticacio(user, pwd);
             jugarPartidaFrame.mostraMenuPrincipal();
         } catch (Exception e) {
-            //TODO imprimir mensaje de error
             String except = e.getMessage();
             switch (except) {
                 case EXC_USERNAME_NO_E:

@@ -52,7 +52,7 @@ public class JugarPartidaFrame extends JFrame{
 
     public void mostraRanking(ArrayList<Pair> e){
         setTitle("Ranking");
-        canviaPanel(new RankingView());
+        canviaPanel(new RankingView(e));
     }
 
     public static void actualitzaPuntuacio(int punts){
