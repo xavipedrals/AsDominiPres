@@ -172,6 +172,9 @@ public class PartidaView extends JugarPartidaTemplate{
         int i, j, k;
         i = 0;
 
+        for(Integer i : p){
+            System.out.println(i);
+        }
         while(i <= 13){
             taulellModel.setValue(p.get(i),p.get(i+1),p.get(i+2));
             i += 3;
