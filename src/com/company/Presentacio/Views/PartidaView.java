@@ -180,12 +180,12 @@ public class PartidaView extends JugarPartidaTemplate{
         int i, j, k;
         i = 0;
 
-        for(Integer i : p){
-            System.out.println(i);
+        for(Integer x : p){
+            System.out.println(x);
         }
-        while(i <= 13){
-            taulellModel.setValue(p.get(i),p.get(i+1),p.get(i+2));
-            i += 3;
-        }
+//        while(i <= 13){
+//            taulellModel.setValue(p.get(i),p.get(i+1),p.get(i+2));
+//            i += 3;
+//        }
     }
 }
