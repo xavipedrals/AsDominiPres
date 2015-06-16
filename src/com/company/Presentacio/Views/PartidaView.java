@@ -108,7 +108,30 @@ public class PartidaView extends JugarPartidaTemplate{
         add(panel1);
     }
 
+    public void actualitzaPuntuacio(int p){
+        puntModel.setPuntuacioActual(p);
+        puntModel.setPuntuacioSiMaxima(p);
+        validate();
+        repaint();
+    }
 
+    public void actualitzaCaselles(CasellaList p) {
+
+        taulellModel.resetValues();
+        for(CasellaScheme cs : p){
+            System.out.println("View fila: " + cs.getRow());
+            System.out.println("View col: " + cs.getCol());
+            System.out.println("View num: " + cs.getNum());
+            taulellModel.setValue(cs.getRow(), cs.getCol(), cs.getNum());
+        }
+        validate();
+        repaint();
+    }
+
+
+
+    //Aquestes dues classes, defineixen en model de les taules que utilitzem
+    //Una per les puntuacions i l'altra per a representar el taulell
 
     private class myTaulellModel extends AbstractTableModel {
         public Object[][] values = {
@@ -178,22 +201,5 @@ public class PartidaView extends JugarPartidaTemplate{
         }
     }
 
-    public void actualitzaPuntuacio(int p){
-        puntModel.setPuntuacioActual(p);
-        puntModel.setPuntuacioSiMaxima(p);
-        validate();
-        repaint();
-    }
-    public void actualitzaCaselles(CasellaList p) {
 
-        taulellModel.resetValues();
-        for(CasellaScheme cs : p){
-            System.out.println("View fila: " + cs.getRow());
-            System.out.println("View col: " + cs.getCol());
-            System.out.println("View num: " + cs.getNum());
-            taulellModel.setValue(cs.getRow(), cs.getCol(), cs.getNum());
-        }
-        validate();
-        repaint();
-    }
 }

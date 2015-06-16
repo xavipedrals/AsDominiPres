@@ -27,7 +27,7 @@ public class RankingView extends JugarPartidaTemplate{
     private String list2Data[];
     private ArrayList<Pair> res;
 
-
+    //TODO passar per parametre
     private void insereixDades() {
         //consulta a la BD i agafa el ranking ja ordenat
         ArrayList<Jugador> result = (ArrayList<Jugador>)HibernateHelper.getRankingmillorsPuntuacions();
@@ -36,7 +36,7 @@ public class RankingView extends JugarPartidaTemplate{
             Pair p = new Pair(j.getUsername(), j.getMillorpuntuacio());
             res.add(p);
         }
-        //posa la info a les
+        //posa la info a les files
         list1Data = new String[result.size()];
         list2Data = new String[result.size()];
         int i = 0;

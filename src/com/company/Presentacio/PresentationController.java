@@ -3,23 +3,27 @@ package com.company.Presentacio;
 import com.company.Domini.UseCases.JugarPartidaUseCaseController;
 import com.company.Utility.InfoPartida;
 
-import java.util.ArrayList;
-
-/**
- * Created by marcos on 13/06/2015.
- */
-
-//CONTROLADOR PRESENTACION
 public class PresentationController {
+    /*
+    * El controlador de presentació s'encarrega de rebre els events que reben de les diferents vistes
+    * indicar al controlador de cas dús que ha de fer i actualitza la informació relacionada.
+    *
+    * Cal destacar que a diferencia del disseny original que vam fer,
+    * ha estat necessari definir les vistes per a cada pantalla per tal
+    * de que el codi fos mantenible i fàcil de llegir.
+     */
+
+    //Strings per a codificar les excepcions
     final static private String EXC_USERNAME_NO_E = "usernameNoExisteix";
     final static private String EXC_PWD_INC = "pwdIncorrecte";
     final static private String EXC_USER_NO_J = "usuariNoJugador";
     final static private String EXC_NO_PARTIDES = "noHiHaPartides";
 
+    //Controladors
     private static JugarPartidaUseCaseController controladorJugarPartida;
     private static JugarPartidaFrame jugarPartidaFrame;
 
-    /* Singleton */
+    // Singleton
     private static PresentationController instance;
 
     public static PresentationController getInstance(){
@@ -29,6 +33,8 @@ public class PresentationController {
         return instance;
     }
 
+    //Inicialització del controlador de cas d'us
+    // i de la jugarPartidaFrame, classe contenidora de les diferents vistes
     public PresentationController(){
         controladorJugarPartida = new JugarPartidaUseCaseController();
         jugarPartidaFrame = new JugarPartidaFrame();
@@ -38,6 +44,9 @@ public class PresentationController {
         jugarPartidaFrame.inicia();
     }
 
+
+    //Aquestes funcions indiquen el comportament quan es rep un event de qualsevol vista.
+    //Son cridades per les vistes en concret, definit ActionListeners als botons.
     public static void prOkIniciaSessio(String user, String pwd) {
         try {
             controladorJugarPartida.ferAutenticacio(user, pwd);

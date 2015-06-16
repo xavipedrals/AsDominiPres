@@ -171,7 +171,7 @@ public class Partida {
                 if (casellaList[i][j].getNumero() == casellaList[i][j+1].getNumero()) {
                     casellaList[i][j].dobleValor();
                     puntuacio += casellaList[i][j].getNumero();
-                    if (casellaList[i][j].getNumero() == 2048) estaguanyada = true;
+                    if (casellaList[i][j].getNumero() == 16) estaguanyada = true;
                     k = j+1;
                     while (k < 3) {
                         casellaList[i][k].setNumero(casellaList[i][k+1].getNumero());
@@ -205,7 +205,7 @@ public class Partida {
                 if (casellaList[i][j].getNumero() == casellaList[i][j-1].getNumero()) {
                     casellaList[i][j].dobleValor();
                     puntuacio += casellaList[i][j].getNumero();
-                    if (casellaList[i][j].getNumero() == 2048) estaguanyada = true;
+                    if (casellaList[i][j].getNumero() == 16) estaguanyada = true;
                     k = j-1;
                     while (k > 0) {
                         casellaList[i][k].setNumero(casellaList[i][k-1].getNumero());
@@ -239,7 +239,7 @@ public class Partida {
                 if (casellaList[j][i].getNumero() == casellaList[j+1][i].getNumero()) {
                     casellaList[j][i].dobleValor();
                     puntuacio += casellaList[j][i].getNumero();
-                    if (casellaList[j][i].getNumero() == 2048) estaguanyada = true;
+                    if (casellaList[j][i].getNumero() == 16) estaguanyada = true;
                     k = j+1;
                     while (k < 3) {
                         casellaList[k][i].setNumero(casellaList[k+1][i].getNumero());
@@ -273,7 +273,7 @@ public class Partida {
                 if (casellaList[j][i].getNumero() == casellaList[j-1][i].getNumero()) {
                     casellaList[j][i].dobleValor();
                     puntuacio += casellaList[j][i].getNumero();
-                    if (casellaList[j][i].getNumero() == 2048) estaguanyada = true;
+                    if (casellaList[j][i].getNumero() == 16) estaguanyada = true;
                     k = j-1;
                     while (k > 0) {
                         casellaList[k][i].setNumero(casellaList[k-1][i].getNumero());

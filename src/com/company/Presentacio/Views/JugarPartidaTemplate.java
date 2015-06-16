@@ -3,8 +3,10 @@ package com.company.Presentacio.Views;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * Created by marcos on 15/06/2015.
+
+/* JugarPartidaTemplate, es la classe de la que heredaran les altres vistes.
+*  D'aquesta manera, podem definir una messageArea comuna a totes, que també es pot
+*  desactivar si les vistes no en tenen.
  */
 public class  JugarPartidaTemplate extends JPanel{
     protected JTextField messageArea;
@@ -21,7 +23,7 @@ public class  JugarPartidaTemplate extends JPanel{
         add(messageArea,BorderLayout.PAGE_END);
     }
 
-    //Per ocultar la vista del missatge --> Ranking
+
     public void hideMessage(){
         messageArea.setEnabled(false);
         messageArea.setVisible(false);

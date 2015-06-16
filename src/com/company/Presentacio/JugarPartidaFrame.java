@@ -9,8 +9,10 @@ import com.company.Utility.Pair;
 import javax.swing.*;
 import java.util.ArrayList;
 
-/**
- * Created by marcos on 13/06/2015.
+
+/*Classe contenidora de les diferents vistes que té l'aplicació
+   S'encarrega de realitzar el canvi de vistes assegurant que no hi
+   ha cap inconsistència
  */
 public class JugarPartidaFrame extends JFrame{
 
@@ -19,15 +21,12 @@ public class JugarPartidaFrame extends JFrame{
     private final int h = 800;
     private final int w = 500;
 
-
     private static JugarPartidaTemplate panel;
 
     public JugarPartidaFrame(){
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(xPos, yPos, h, w);
-//        setResizable(false);
     }
-
 
     public void inicia(){
         setTitle("Inicia sessio");
@@ -65,7 +64,6 @@ public class JugarPartidaFrame extends JFrame{
     public static void mostraMissatge(String txt){
         panel.mostraMissatge(txt);
     }
-
 
     public static void actualitzaCaselles(CasellaList caselles){
         PartidaView p = (PartidaView) panel;

@@ -16,9 +16,6 @@ public class MenuPrincipalView extends JugarPartidaTemplate{
     private JButton button2;
     private JTextArea textArea1;
 
-
-    //TODO LISTENERS
-
     public MenuPrincipalView(){
         //implementacio dels botons jugar i ranking del menu
         button1.setText("Jugar");
@@ -49,18 +46,19 @@ public class MenuPrincipalView extends JugarPartidaTemplate{
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("IMPLEMENTAME");
+
+                PresentationController.getInstance().prJugarMenuPrincipal();
             }
         });
 
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("IMPLEMENTAME");
+                PresentationController.getInstance().prRankingMenuPrincipal();
             }
         });
 
-              mostraMissatge(msg);
+        mostraMissatge(msg);
         add(panel1);
     }
 }
