@@ -135,7 +135,7 @@ public class PartidaView extends JugarPartidaTemplate{
             return values[rowIndex][columnIndex];
         }
 
-        public void setValue(Object value, int rowIndex, int columnIndex){
+        public void setValue(int rowIndex, int columnIndex, Object value){
             values[rowIndex][columnIndex] = value;
         }
     }
@@ -181,11 +181,16 @@ public class PartidaView extends JugarPartidaTemplate{
         i = 0;
 
         for(Integer x : p){
-            System.out.println(x);
+            System.out.println("valor:  "+ x);
         }
-//        while(i <= 13){
-//            taulellModel.setValue(p.get(i),p.get(i+1),p.get(i+2));
-//            i += 3;
-//        }
+
+        validate();
+        repaint();
+        int limit = p.size();
+        while(i <= limit -2){
+            //i j valor
+            taulellModel.setValue(p.get(i),p.get(i+1),p.get(i+2));
+            i += 3;
+        }
     }
 }
