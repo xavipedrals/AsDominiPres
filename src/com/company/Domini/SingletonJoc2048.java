@@ -29,10 +29,8 @@ public class SingletonJoc2048 {
             setInstance();
         }
         int aux = instance.getIdpartida();
-        HibernateHelper.emptyTable(Joc2048.class.getName());
         instance = new Joc2048();
         instance.setIdpartida(aux+1);
-        HibernateHelper.save(instance);
         ICtrlDataFactory.getInstance().getCtrlJoc2048().updateJoc2048(instance);
         return aux;
     }

@@ -28,6 +28,7 @@ public class CtrlJoc2048 implements ICtrlJoc2048 {
     //Actualitza la instància de Joc2048 existent a la BD
     @Override
     public void updateJoc2048(Joc2048 joc2048) {
+        HibernateHelper.emptyTable(Joc2048.class.getName());
         HibernateHelper.update(joc2048);
     }
 }
