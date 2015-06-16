@@ -39,10 +39,10 @@ public class CtrlJugador implements ICtrlJugador{
     }
 
 
-    @Override
-    public void createJugador(String username, String email, int millorPuntuacio) {
-            //TODO SOBRA¿?
-    }
+//    @Override
+//    public void createJugador(String username, String email, int millorPuntuacio) {
+//
+//    }
 
 
 

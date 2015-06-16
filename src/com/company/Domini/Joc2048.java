@@ -8,6 +8,7 @@ import javax.persistence.Table;
 /**
  * Created by marcos on 15/06/2015.
  */
+//Classe autogenerada per Hibernate a partir de la taula Joc2048 de la BD
 @Entity
 public class Joc2048 {
     private int idpartida;

@@ -24,6 +24,7 @@ public class JugarPartidaUseCaseController {
 
     }
 
+    //Comprova que un usuari existeixi a la BD,
     public void ferAutenticacio(String userN, String passwd) throws Exception{
         ICtrlUsuariRegistrat uRegCtrl = CtrlDataFactory.getCtrlUsuariRegistrat();
         Usuariregistrat uReg = uRegCtrl.getUsuariRegistrat(userN);

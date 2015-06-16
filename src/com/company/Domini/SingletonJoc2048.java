@@ -24,19 +24,12 @@ public class SingletonJoc2048 {
         return instance;
     }
 
-    public static int getIdActual(){
-        if (instance == null){
-            setInstance();
-        }
-        return instance.getIdpartida();
-    }
-
     public static int getIdAndIncrement(){
         if (instance == null){
             setInstance();
         }
         int aux = instance.getIdpartida();
-        System.out.print("aux " + aux + "\n");
+        //System.out.print("aux " + aux + "\n");
         HibernateHelper.emptyTable(Joc2048.class.getName());
         instance = new Joc2048();
         instance.setIdpartida(aux+1);

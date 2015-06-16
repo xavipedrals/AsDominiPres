@@ -6,6 +6,7 @@ import java.util.Collection;
 /**
  * Created by marcos on 15/06/2015.
  */
+//Classe autogenerada per Hibernate a partir de la taula Jugador de la BD
 @Entity
 public class Jugador {
     private String username;

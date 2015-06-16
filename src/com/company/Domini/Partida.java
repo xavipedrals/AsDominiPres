@@ -6,12 +6,13 @@ import com.company.Utility.CasellaScheme;
 import com.company.Utility.InfoPartida;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.*;
 
 /**
  * Created by marcos on 15/06/2015.
  */
+//Classe autogenerada per Hibernate a partir de la taula Partida de la BD
+//Hem afegit funcions i estructures per fer els moviments de caselles de la partida
 @Entity
 public class Partida {
     private int idpartida;
@@ -120,13 +121,9 @@ public class Partida {
         this.jugadorByUsername = jugadorByUsername;
     }
 
-
-
     public IEstrategiaRanking obteEstrategiaRanking() {
         return estrategiaRanking;
     }
-
-
 
     public void setEstrategiaRanking(IEstrategiaRanking estrategiaRanking) {
         this.estrategiaRanking = estrategiaRanking;
