@@ -13,15 +13,14 @@ import java.util.ArrayList;
 public class MillorPuntuacio implements IEstrategiaRanking {
 
     @Override
-    public ArrayList<Pair> obtenirRanking() {
+    public ArrayList<Pair> obtenirRanking() throws Exception {
         ArrayList<Jugador> arrayList = (ArrayList<Jugador>) HibernateHelper.getRankingmillorsPuntuacions();
         ArrayList<Pair> result = new ArrayList<Pair>();
         if (arrayList == null){
-            //throw new Exception("noHiHaPartides");
+            throw new Exception("noHiHaPartides");
         }
         else {
             for (Jugador j : arrayList) {
-                System.out.print(j.getUsername() + " " + j.getMillorpuntuacio() + "\n");
                 result.add(new Pair(j.getUsername(), j.getMillorpuntuacio()));
             }
         }
