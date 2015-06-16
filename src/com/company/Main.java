@@ -1,11 +1,8 @@
 package com.company;
 
-import com.company.Adapters.AdapterFactory;
-import com.company.Adapters.IMailAdapter;
-import com.company.Adapters.MailAdapter;
+
 import com.company.Presentacio.PresentationController;
 import com.company.Services.ServiceLayer;
-import com.company.Services.ServiceLocator;
 
 import java.io.BufferedReader;
 import java.io.IOException;
