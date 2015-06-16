@@ -2,9 +2,7 @@ package com.company.Domini;
 
 import javax.persistence.*;
 
-/**
- * Created by marcos on 15/06/2015.
- */
+
 //Classe autogenerada per Hibernate a partir de la taula Casella de la BD
 @Entity
 @IdClass(CasellaPK.class)

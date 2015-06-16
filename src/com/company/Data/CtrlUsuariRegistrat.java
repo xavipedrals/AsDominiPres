@@ -4,9 +4,7 @@ import com.company.DataInterface.ICtrlUsuariRegistrat;
 import com.company.Domini.Usuariregistrat;
 import com.company.Utility.HibernateHelper;
 
-/**
- * Created by marcos on 13/06/2015.
- */
+
 //Controlador de la classe UsuariRegistrat
 //No tenim funcions de crear i guardar usuariRegistrat perquè el cas d'ús Jugar Partida no les inclou
 public class CtrlUsuariRegistrat implements ICtrlUsuariRegistrat {

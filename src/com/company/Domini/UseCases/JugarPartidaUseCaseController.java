@@ -1,15 +1,13 @@
 package com.company.Domini.UseCases;
 
-import com.company.DataInterface.CtrlDataFactory;
+import com.company.DataInterface.ICtrlDataFactory;
 import com.company.Domini.*;
-import com.company.DataInterface.ICtrlJugador;
 import com.company.DataInterface.ICtrlUsuariRegistrat;
 import com.company.Domini.EstrategiaRanking.MillorPuntuacio;
 import com.company.Utility.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 
 /**
  * Created by marcos on 13/06/2015.
@@ -28,12 +26,12 @@ public class JugarPartidaUseCaseController {
 
     //fa el login del jugador mirant la BD i llençant exepcions si es necessari
     public void ferAutenticacio(String userN, String passwd) throws Exception{
-        ICtrlUsuariRegistrat uRegCtrl = CtrlDataFactory.getCtrlUsuariRegistrat();
+        ICtrlUsuariRegistrat uRegCtrl = ICtrlDataFactory.getCtrlUsuariRegistrat();
         Usuariregistrat uReg = uRegCtrl.getUsuariRegistrat(userN);
         if (uReg != null) {
             if (uReg.getPassword().equals(passwd)) {
                 //ICtrlJugador jugadorCtrl = CtrlDataFactory.getInstance().getCtrlJugador();
-                jugadorActual = CtrlDataFactory.getInstance().getCtrlJugador().getJugador(userN);
+                jugadorActual = ICtrlDataFactory.getInstance().getCtrlJugador().getJugador(userN);
                 if (jugadorActual == null) throw new Exception("usuariNoJugador");
             } else {
                 throw new Exception("pwdIncorrecte");
@@ -55,7 +53,7 @@ public class JugarPartidaUseCaseController {
 
         partidaActual = nova;
 
-        CtrlDataFactory.getInstance().getCtrlPartida().savePartida(nova);
+        ICtrlDataFactory.getInstance().getCtrlPartida().savePartida(nova);
 
         nova.setCasellaList(generarTaulell());
 

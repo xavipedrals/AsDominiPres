@@ -2,9 +2,7 @@ package com.company.Domini;
 
 import com.company.Utility.HibernateHelper;
 
-/**
- * Created by xavivaio on 11/06/2015.
- */
+
 //Classe singleton per controlar que només hi hagi una instància de Joc2048
 public class SingletonJoc2048 {
 
