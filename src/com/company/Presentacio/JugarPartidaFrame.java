@@ -23,7 +23,7 @@ public class JugarPartidaFrame extends JFrame{
     public JugarPartidaFrame(){
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(xPos, yPos, h, w);
-        setResizable(false);
+//        setResizable(false);
     }
 
     public void inicia(){
@@ -34,19 +34,22 @@ public class JugarPartidaFrame extends JFrame{
     }
 
     public void mostraMenuPrincipal(){
+        setTitle("Menu principal");
         canviaPanel(new MenuPrincipalView());
     }
 
     public void mostraMenuPrincipal(String msg){
+        setTitle("Menu principal");
         canviaPanel(new MenuPrincipalView(msg));
-
     }
 
     public void mostraPartida(ArrayList<Integer> x){
+        setTitle("Partida");
         canviaPanel(new PartidaView(x));
     }
 
     public void mostraRanking(ArrayList<Pair> e){
+        setTitle("Ranking");
         canviaPanel(new RankingView());
     }
 
@@ -62,7 +65,7 @@ public class JugarPartidaFrame extends JFrame{
 
 
     public static void actualitzaCaselles(ArrayList<Integer> info){
-        PartidaView p = (PartidaView)panel;
+        PartidaView p = (PartidaView) panel;
         p.actualitzaCaselles(info);
     }
 

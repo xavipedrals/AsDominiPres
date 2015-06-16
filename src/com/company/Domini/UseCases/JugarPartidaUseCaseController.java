@@ -61,16 +61,17 @@ public class JugarPartidaUseCaseController {
             nova.setEstrategiaRanking(new MillorPuntuacio());
             nova.setPuntuacio(0);
             nova.setIdpartida(Joc2048.getIdAndIncrement());
-        //nova.insert();
+
         partidaActual = nova;
-//        ArrayList<Integer> result = new ArrayList<Integer>();
-//        result.add(0);
-//        result.add(jugadorActual.getMillorpuntuacio());
-//        result.addAll(nova.obteCasellesAmbNumero());
-//        //
-        // return result;
-        //TODO QUE NO RETORNE NULL!
-        return null;
+        ArrayList<Integer> result = new ArrayList<Integer>();
+
+        result.add(0); //puntuacio inicial == 0;
+        result.add(jugadorActual.getMillorpuntuacio()); //millor puntuacio
+        result.addAll(nova.obteCasellesAmbNumero());
+        for (Integer i : result){
+            System.out.println("Valor al crear: " +i );
+        }
+        return result;
     }
 
     private Casella[][] generarTaulell() {

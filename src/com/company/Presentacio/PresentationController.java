@@ -106,9 +106,4 @@ public class PresentationController {
             jugarPartidaFrame.actualitzaCaselles(info);
         }
     }
-
-    //TODO DELETE
-    public static void STUBRanking(){
-        jugarPartidaFrame.mostraRanking(new ArrayList<>());
-    }
 }

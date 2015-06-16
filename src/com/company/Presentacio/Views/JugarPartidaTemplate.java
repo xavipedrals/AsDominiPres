@@ -23,6 +23,7 @@ public class  JugarPartidaTemplate extends JPanel{
     //Per ocultar la vista del missatge --> Ranking
     public void hideMessage(){
         messageArea.setEnabled(false);
+        messageArea.setVisible(false);
     }
 
     public void mostraMissatge(String msg){

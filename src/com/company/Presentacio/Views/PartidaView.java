@@ -46,7 +46,6 @@ public class PartidaView extends JugarPartidaTemplate{
         table1.setModel(puntModel);
         table1.setCellSelectionEnabled(false);
         table1.setRowHeight(15);
-//        table1.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
         table1.setColumnSelectionAllowed(false);
         table1.setRowSelectionAllowed(false);
         table1.setFocusable(false);
@@ -99,19 +98,19 @@ public class PartidaView extends JugarPartidaTemplate{
                 PresentationController.prDretaJugarPartida();
             }
         });
+
+
+        puntModel.setPuntuacioActual(info.get(0));
+        info.remove(0);
+        puntModel.setPuntuacioSiMaxima(info.get(0));
+        info.remove(0);
+        //el que queden son caselles
+        actualitzaCaselles(info);
         add(panel1);
     }
 
 
 
-
-
-
-
-
-
-
-    //TODO A STATIC PER PODER ACCEDIR?
     private class myTaulellModel extends AbstractTableModel {
         public Object[][] values = {
                 {0,0,0,0},
@@ -138,6 +137,15 @@ public class PartidaView extends JugarPartidaTemplate{
         public void setValue(int rowIndex, int columnIndex, Object value){
             values[rowIndex][columnIndex] = value;
         }
+
+        public void resetValues(){
+            values = new Object[][]{
+                    {0,0,0,0},
+                    {0,0,0,0},
+                    {0,0,0,0},
+                    {0,0,0,0}
+            };
+        }
     }
 
     private class myPuntuacioModel extends AbstractTableModel {
@@ -158,7 +166,6 @@ public class PartidaView extends JugarPartidaTemplate{
 
         @Override
         public Object getValueAt(int rowIndex, int columnIndex) {
-            //TODO EN PRINCIPIO NO SE DEBE PODER COGER NINGUN VALOR
             return values[rowIndex][columnIndex];
         }
 
@@ -175,22 +182,20 @@ public class PartidaView extends JugarPartidaTemplate{
     public void actualitzaPuntuacio(int p){
         puntModel.setPuntuacioActual(p);
         puntModel.setPuntuacioSiMaxima(p);
-    }
-    public void actualitzaCaselles(ArrayList<Integer> p) {
-        int i, j, k;
-        i = 0;
-
-        for(Integer x : p){
-            System.out.println("valor:  "+ x);
-        }
-
         validate();
         repaint();
+    }
+    public void actualitzaCaselles(ArrayList<Integer> p) {
+
+        taulellModel.resetValues();
+        int i = 0;
         int limit = p.size();
         while(i <= limit -2){
             //i j valor
             taulellModel.setValue(p.get(i),p.get(i+1),p.get(i+2));
             i += 3;
         }
+        validate();
+        repaint();
     }
 }

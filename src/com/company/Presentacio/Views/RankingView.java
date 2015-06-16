@@ -1,11 +1,14 @@
 package com.company.Presentacio.Views;
 
+import com.company.Presentacio.PresentationController;
 import com.company.Utility.Pair;
 
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 /**
@@ -46,6 +49,28 @@ public class RankingView extends JugarPartidaTemplate{
         table1.getColumnModel().getColumn(0).setCellRenderer( centerRenderer );
         table2.setModel(new myPuntuacioModel());
         table2.getColumnModel().getColumn(0).setCellRenderer( centerRenderer );
+        menuButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PresentationController.prMenuRanking();
+            }
+        });
+        hideMessage();
+
+        table1.setRowHeight(30);
+        table1.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+        table1.setColumnSelectionAllowed(false);
+        table1.setRowSelectionAllowed(false);
+        table1.setCellSelectionEnabled(false);
+        table1.setFocusable(false);
+
+
+        table2.setRowHeight(30);
+        table2.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+        table2.setColumnSelectionAllowed(false);
+        table2.setRowSelectionAllowed(false);
+        table2.setCellSelectionEnabled(false);
+        table2.setFocusable(false);
 
         add(panel1);
     }
@@ -65,7 +90,6 @@ public class RankingView extends JugarPartidaTemplate{
 
         @Override
         public Object getValueAt(int rowIndex, int columnIndex) {
-            //TODO EN PRINCIPIO NO SE DEBE PODER COGER NINGUN VALOR
             return values[rowIndex];
         }
     }
@@ -85,7 +109,6 @@ public class RankingView extends JugarPartidaTemplate{
 
         @Override
         public Object getValueAt(int rowIndex, int columnIndex) {
-            //TODO EN PRINCIPIO NO SE DEBE PODER COGER NINGUN VALOR
             return values[rowIndex];
         }
     }
