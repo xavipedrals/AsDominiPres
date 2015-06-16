@@ -130,6 +130,7 @@ public class Partida {
     }
 
     public CasellaList obteCasellesAmbNumero() {
+        //retorna un set amb la info de les caselles amb numero
         CasellaList result = new CasellaList();
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
@@ -147,6 +148,8 @@ public class Partida {
 
 
     public void mouEsquerra() {
+        //tots els mou son semblants
+        //primer agafem els valors i els tirem tots cap a la direcció indicada (sense unir encara)
         int k;
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
@@ -163,6 +166,7 @@ public class Partida {
                 }
             }
         }
+        //un cop acabat unim les caselles amb numeros iguals i desplacem la resta en la mateixa direccio
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 3; j++) {
                 if (casellaList[i][j].getNumero() == casellaList[i][j+1].getNumero()) {
@@ -283,6 +287,8 @@ public class Partida {
     }
 
     public InfoPartida actualitza(Jugador jugadorActual) {
+        //actualitza la info de la partida i afegeix un nou numero aleatoriament
+        //si aquesta encara no ha guanyat ni acabat
         if (obteCasellesAmbNumero().size() == 16 || estaguanyada) estaacabada = true;
         else {
             int a1, b1, c1;
@@ -305,6 +311,7 @@ public class Partida {
         result.setPuntuacio(puntuacio);
         result.setCaselles(obteCasellesAmbNumero());
 
+        //si el jugador supera la seva millor puntuació aquesta queda materialitzada
         if (estaguanyada && (jugadorActual.getMillorpuntuacio() < puntuacio))
             jugadorActual.setMillorpuntuacio(puntuacio);
         return result;

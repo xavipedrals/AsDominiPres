@@ -23,20 +23,20 @@ public class RankingView extends JugarPartidaTemplate{
     private JButton menuButton;
     private JTable table1;
     private JTable table2;
-    private ArrayList<Jugador> result;
     private String list1Data[];
     private String list2Data[];
     private ArrayList<Pair> res;
 
 
     private void insereixDades() {
-        result = (ArrayList<Jugador>)HibernateHelper.getRankingmillorsPuntuacions();
+        //consulta a la BD i agafa el ranking ja ordenat
+        ArrayList<Jugador> result = (ArrayList<Jugador>)HibernateHelper.getRankingmillorsPuntuacions();
         res = new ArrayList<Pair>();
         for (Jugador j : result) {
             Pair p = new Pair(j.getUsername(), j.getMillorpuntuacio());
             res.add(p);
         }
-
+        //posa la info a les
         list1Data = new String[result.size()];
         list2Data = new String[result.size()];
         int i = 0;
@@ -48,6 +48,8 @@ public class RankingView extends JugarPartidaTemplate{
     }
 
     public RankingView(){
+        //ompla les taules amb la info corresponent i les posa no editables
+        //tambe defineix el boto menu per retornar
         insereixDades();
         table1.setModel(new myUsuariModel());
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
@@ -82,6 +84,7 @@ public class RankingView extends JugarPartidaTemplate{
     }
 
     private class myUsuariModel extends AbstractTableModel {
+        //tipus de taula dels usuaris
         public Object[] values = list1Data;
 
         @Override
@@ -101,6 +104,7 @@ public class RankingView extends JugarPartidaTemplate{
     }
 
     private class myPuntuacioModel extends AbstractTableModel {
+        //tipus de taula de la puntuacio
         public Object[] values = list2Data;
 
         @Override

@@ -26,6 +26,7 @@ public class JugarPartidaUseCaseController {
 
     //Comprova que un usuari existeixi a la BD,
     public void ferAutenticacio(String userN, String passwd) throws Exception{
+        //fa el login del jugador llençant exepcions si es necessari
         ICtrlUsuariRegistrat uRegCtrl = CtrlDataFactory.getCtrlUsuariRegistrat();
         Usuariregistrat uReg = uRegCtrl.getUsuariRegistrat(userN);
         if (uReg != null) {
@@ -78,7 +79,7 @@ public class JugarPartidaUseCaseController {
         return result;
     }
 
-    private Casella[][] generarTaulell() {
+    private Casella[][] generarTaulell() { //crea la taula amb dos valors 2 o 4 a llocs aleatoris
         Casella caselles[][] = new Casella[4][4];
         int a1 = rand(1,2), b1 = rand(1,4), c1 = rand(1,2);
         int a2 = rand(3,4), b2 = rand(1,4), c2 = rand(1,2);
@@ -102,8 +103,8 @@ public class JugarPartidaUseCaseController {
         return caselles;
     }
 
-    public InfoPartida ferMoviment(String mov){
-        switch (mov) {
+    public InfoPartida ferMoviment(String mov){ //fa el moviment corresponent i retorna la
+        switch (mov) {                          //informacio necessaria a la capa de presentacio
             case "esq":
                 partidaActual.mouEsquerra();
                 break;
@@ -121,7 +122,7 @@ public class JugarPartidaUseCaseController {
         return partidaActual.actualitza(jugadorActual);
     }
 
-    public ArrayList<Pair> obtenirRanking() throws Exception {
+    public ArrayList<Pair> obtenirRanking() throws Exception { //obte el ranking ordenat accedint a la BD
         //Si no hi ha cap partida actual sera null, per tant per defecte retornem la estrategia de millor puntuació.
         if (partidaActual == null) return new MillorPuntuacio().obtenirRanking();
         else return partidaActual.obteEstrategiaRanking().obtenirRanking();
