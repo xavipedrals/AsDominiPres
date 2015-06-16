@@ -8,9 +8,16 @@ import com.company.Utility.HibernateHelper;
 
 //Controlador de la classe 2048
 public class CtrlJoc2048 implements ICtrlJoc2048 {
-    public CtrlJoc2048(){
 
+    private static CtrlJoc2048 instance;
+    public static CtrlJoc2048 getInstance(){
+        if (instance == null){
+            instance = new CtrlJoc2048();
+        }
+        return instance;
     }
+
+    public CtrlJoc2048(){}
 
     //Retorna la instància de Joc2048
     @Override
@@ -20,7 +27,7 @@ public class CtrlJoc2048 implements ICtrlJoc2048 {
 
     //Actualitza la instància de Joc2048 existent a la BD
     @Override
-    public void updateJoc2048() {
-        HibernateHelper.update(SingletonJoc2048.getInstance());
+    public void updateJoc2048(Joc2048 joc2048) {
+        HibernateHelper.update(joc2048);
     }
 }

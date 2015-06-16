@@ -1,5 +1,6 @@
 package com.company.Domini;
 
+import com.company.DataInterface.ICtrlDataFactory;
 import com.company.Utility.HibernateHelper;
 
 
@@ -32,6 +33,7 @@ public class SingletonJoc2048 {
         instance = new Joc2048();
         instance.setIdpartida(aux+1);
         HibernateHelper.save(instance);
+        ICtrlDataFactory.getInstance().getCtrlJoc2048().updateJoc2048(instance);
         return aux;
     }
 }

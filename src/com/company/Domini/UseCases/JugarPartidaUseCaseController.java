@@ -103,7 +103,6 @@ public class JugarPartidaUseCaseController {
                 partidaActual.mouAvall();
                 break;
         }
-        //HibernateHelper.updateCaselles(partidaActual.getCasellaList());
         return partidaActual.actualitza(jugadorActual);
     }
 

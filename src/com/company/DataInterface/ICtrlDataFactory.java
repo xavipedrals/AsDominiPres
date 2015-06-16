@@ -1,9 +1,7 @@
 package com.company.DataInterface;
 
-import com.company.Data.CtrlCasella;
-import com.company.Data.CtrlJugador;
-import com.company.Data.CtrlPartida;
-import com.company.Data.CtrlUsuariRegistrat;
+import com.company.Data.*;
+import com.company.Domini.DataInterface.ICtrlJoc2048;
 
 //Factoria de controladors
 public class ICtrlDataFactory {
@@ -13,6 +11,7 @@ public class ICtrlDataFactory {
     private static ICtrlJugador jugador;
     private static ICtrlPartida partida;
     private static ICtrlUsuariRegistrat ureg;
+    private static ICtrlJoc2048 joc2048;
 
 
     public static ICtrlDataFactory getInstance() {
@@ -48,6 +47,13 @@ public class ICtrlDataFactory {
             jugador = CtrlJugador.getInstance();
         }
         return jugador;
+    }
+
+    public static ICtrlJoc2048 getCtrlJoc2048() {
+        if (joc2048 == null) {
+            joc2048 = CtrlJoc2048.getInstance();
+        }
+        return joc2048;
     }
 
 }
