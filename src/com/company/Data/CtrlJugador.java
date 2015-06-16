@@ -9,6 +9,7 @@ import java.util.ArrayList;
 /**
  * Created by marcos on 13/06/2015.
  */
+//Controlador de la classe Jugador
 public class CtrlJugador implements ICtrlJugador{
 
     private static CtrlJugador instance;
@@ -19,31 +20,25 @@ public class CtrlJugador implements ICtrlJugador{
         return instance;
     }
 
-
     public CtrlJugador(){
     }
 
+    //Retorna tots els jugadors
     @Override
-    public ArrayList<Jugador> tots() {
+    public ArrayList<Jugador> getAll() {
         return (ArrayList<Jugador>) HibernateHelper.getAllJugadors();
     }
 
+    //Retorna l'objecte Jugador amb el username corresponent, si no existeix retorna null
     @Override
     public Jugador getJugador(String username) {
         return HibernateHelper.getJugador(username);
     }
 
+    //Guarda un jugador a la BD
     @Override
     public void saveJugador(Jugador jugador) {
         HibernateHelper.save(jugador);
     }
-
-
-//    @Override
-//    public void createJugador(String username, String email, int millorPuntuacio) {
-//
-//    }
-
-
 
 }

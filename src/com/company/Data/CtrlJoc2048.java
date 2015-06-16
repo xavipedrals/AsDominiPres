@@ -19,4 +19,9 @@ public class CtrlJoc2048 implements ICtrlJoc2048 {
     public Joc2048 getJoc2048() {
         return HibernateHelper.getJoc2048();
     }
+
+    @Override
+    public void updateJoc2048() {
+        HibernateHelper.update(SingletonJoc2048.getInstance());
+    }
 }
