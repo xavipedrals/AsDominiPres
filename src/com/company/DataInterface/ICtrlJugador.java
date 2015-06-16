@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * Created by marcos on 13/06/2015.
  */
 public interface ICtrlJugador {
-    public ArrayList<Jugador> getAll();
+    public ArrayList<Jugador> tots();
 
     public Jugador getJugador(String name);
 

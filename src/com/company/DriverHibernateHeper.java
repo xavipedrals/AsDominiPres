@@ -20,21 +20,9 @@ public class DriverHibernateHeper {
         jugarPartidaUseCaseController.crearPartida();
         jugarPartidaUseCaseController.obtenirRanking();
         Scanner scanner = new Scanner(System.in);
-//        while (true) {
-//            String aux = scanner.next();
-//            switch (aux) {
-//                case ("esq"):
-//                    break;
-//                case ("esq"):
-//                    break;
-//                case ("esq"):
-//                    break;
-//                jugarPartidaUseCaseController.ferMoviment("esq");
-//            }
-//        }
     }
-}
 
+}
 
 
 

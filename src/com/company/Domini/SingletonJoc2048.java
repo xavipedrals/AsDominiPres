@@ -5,13 +5,12 @@ import com.company.Utility.HibernateHelper;
 /**
  * Created by xavivaio on 11/06/2015.
  */
-//Classe que serveix per conntrolar que Joc2048 sigui un singleton
+//Classe singleton per controlar que només hi hagi una instància de Joc2048
 public class SingletonJoc2048 {
 
-    //Unica instancia de Joc2048 en el programa, per això és static
     static private Joc2048 instance;
 
-    //Crea la instancia si no està creada
+    /* Static 'instance' method */
     private static void setInstance(){
         if (instance == null) {
             instance = HibernateHelper.getJoc2048();
@@ -25,7 +24,7 @@ public class SingletonJoc2048 {
         return instance;
     }
 
-    //Retorna l'identificador de la partida i l'incrementa en 1
+    //Retorna idPartida de Joc2048 i l'incrementa en 1
     public static int getIdAndIncrement(){
         if (instance == null){
             setInstance();

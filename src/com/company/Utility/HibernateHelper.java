@@ -147,7 +147,7 @@ public class HibernateHelper {
         return joc;
     }
 
-    //Retorna una llista amb totes les caselles existents a la BD amb un cert idPartida,
+    //Retorna una llista amb totes les caselles existents a la BD amb un cert idPartida, 
     // si no existeixen o idPartida no existeix retorna llista buida
     public static List getCasellesPartida (int idPartida){
         SessionFactory sf = HibernateHelper.getSessionFactory();
@@ -162,7 +162,7 @@ public class HibernateHelper {
         return casellaList;
     }
 
-    //Retorna una llista amb tots els Jugadors existents a la BD,
+    //Retorna una llista amb tots els Jugadors existents a la BD, 
     // si no existeixen jugadors retorna llista buida
     public static List getAllJugadors(){
         SessionFactory sf = HibernateHelper.getSessionFactory();
@@ -200,8 +200,8 @@ public class HibernateHelper {
             }
         }
     }
+    
 
 
-
-
+    
 }

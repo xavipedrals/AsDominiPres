@@ -20,25 +20,27 @@ public class CtrlJugador implements ICtrlJugador{
         return instance;
     }
 
+
     public CtrlJugador(){
     }
 
-    //Retorna tots els jugadors
+    //Retorna tots els jugadors existents a la BD
+    //Si no existeixen jugadors a la BD retorna una llista buida
     @Override
-    public ArrayList<Jugador> getAll() {
+    public ArrayList<Jugador> tots() {
         return (ArrayList<Jugador>) HibernateHelper.getAllJugadors();
     }
 
-    //Retorna l'objecte Jugador amb el username corresponent, si no existeix retorna null
+    //Retorna el jugador amb l'username corresponent
+    //Si no existeix a la BD retorna null
     @Override
     public Jugador getJugador(String username) {
         return HibernateHelper.getJugador(username);
     }
 
-    //Guarda un jugador a la BD
+    //Guarda un Jugador a la BD
     @Override
     public void saveJugador(Jugador jugador) {
         HibernateHelper.save(jugador);
     }
-
 }
