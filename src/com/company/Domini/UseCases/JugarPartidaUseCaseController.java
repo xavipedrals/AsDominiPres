@@ -35,12 +35,20 @@ public class JugarPartidaUseCaseController {
                 if (jugadorActual == null) throw new Exception("usuariNoJugador");
 
             } else {
-                throw new Exception("pwdInconrrecte");
+                throw new Exception("pwdIncorrecte");
             }
         }
         else{
             throw new Exception("usernameNoExisteix");
         }
+    }
+
+    public Partida getPartidaActual(){
+        return partidaActual;
+    }
+
+    public Jugador getJugadorActual(){
+        return jugadorActual;
     }
 
 
@@ -85,8 +93,7 @@ public class JugarPartidaUseCaseController {
         return caselles;
     }
 
-    //Esto tiene que devolver un arraylist o algo
-    public ArrayList<Integer> ferMoviment(String mov, Partida p){
+    public ArrayList<Integer> ferMoviment(String mov){
         switch (mov) {
             case "esq":
                 partidaActual.mouEsquerra();
@@ -101,14 +108,14 @@ public class JugarPartidaUseCaseController {
                 partidaActual.mouAvall();
                 break;
         }
-        ArrayList<Integer> result = partidaActual.actualitza(jugadorActual);
-        return result;
+        return partidaActual.actualitza(jugadorActual);
     }
 
     public ArrayList<Pair> obtenirRanking(){
-        //Agafem la estrategia i li passem la partida per fer la consulta.
-        partidaActual.obteEstrategiaRanking().obtenirRanking();
-        return null;
+        //todo handle exceptions
+        //TODO si partidaActual es null¿? --> no deberia mostrarse ninguna partida.
+        //todo
+        return partidaActual.obteEstrategiaRanking().obtenirRanking();
     }
 
 }

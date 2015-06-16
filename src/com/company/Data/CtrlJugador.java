@@ -40,5 +40,15 @@ public class CtrlJugador implements ICtrlJugador{
         return HibernateHelper.getJugador(username);
     }
 
+    @Override
+    public void createJugador(String username, String email, int millorPuntuacio) {
+
+    }
+
+    @Override
+    public void saveJugador(Jugador jugador) {
+
+    }
+
 
 }

@@ -34,4 +34,14 @@ public class CtrlCasella implements ICtrlCasella{
         return HibernateHelper.getCasella(idPartida, numFila, numColumna);
     }
 
+    @Override
+    public Casella createCasella(int id, int fila, int col, int valor) {
+        return null;
+    }
+
+    @Override
+    public void saveCasella(Casella casella) {
+
+    }
+
 }

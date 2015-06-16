@@ -27,5 +27,15 @@ public class CtrlPartida implements ICtrlPartida {
         return HibernateHelper.getPartida(idPartida);
     }
 
+    @Override
+    public Partida createPartida(int idPartida, boolean estaAcabada, boolean estaGuanyada, int puntuacio, String username) {
+        return null;
+    }
+
+    @Override
+    public void savePartida(Partida partida) {
+
+    }
+
 
 }

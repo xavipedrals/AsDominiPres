@@ -26,4 +26,9 @@ public class CtrlUsuariRegistrat implements ICtrlUsuariRegistrat {
     public Usuariregistrat getUsuariRegistrat(String username) {
         return HibernateHelper.getUsuariRegistrat(username);
     }
+
+    @Override
+    public void createUsuariRegistrat(String nom, String cognom, String username, String password) {
+
+    }
 }
