@@ -31,4 +31,9 @@ public class CtrlUsuariRegistrat implements ICtrlUsuariRegistrat {
     public void createUsuariRegistrat(String nom, String cognom, String username, String password) {
         //TODO SOBRA¿?
     }
+
+    @Override
+    public void saveUsuariRegistrat(Usuariregistrat usuariregistrat) {
+
+    }
 }

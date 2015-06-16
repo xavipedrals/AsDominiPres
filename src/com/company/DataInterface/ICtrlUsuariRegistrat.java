@@ -9,4 +9,6 @@ public interface ICtrlUsuariRegistrat {
     public Usuariregistrat getUsuariRegistrat(String usern);
 
     public void createUsuariRegistrat(String nom, String cognom, String username, String password);
+
+    public void saveUsuariRegistrat(Usuariregistrat usuariregistrat);
 }

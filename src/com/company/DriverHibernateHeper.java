@@ -1,9 +1,7 @@
 package com.company;
 
-import com.company.Domini.Casella;
-import com.company.Domini.Jugador;
-import com.company.Domini.Partida;
-import com.company.Domini.Usuariregistrat;
+import com.company.Domini.*;
+import com.company.Domini.UseCases.JugarPartidaUseCaseController;
 import com.company.Utility.HibernateHelper;
 import com.company.Utility.Pair;
 
@@ -15,7 +13,16 @@ import java.util.ArrayList;
 public class DriverHibernateHeper {
 
     public static void main(final String[] args) throws Exception {
+        JugarPartidaUseCaseController jugarPartidaUseCaseController = new JugarPartidaUseCaseController();
+        jugarPartidaUseCaseController.ferAutenticacio("xavi", "1234");
+//        Joc2048 joc2048 = new Joc2048();
+//        joc2048.setIdpartida(6);
+//        HibernateHelper.save(joc2048);
+        jugarPartidaUseCaseController.crearPartida();
 
+
+    }
+}
 //        ArrayList<Pair> arrayList = HibernateHelper.getRankingmillorsPuntuacionsMitjanes();
 //        for (Pair p : arrayList){
 //            System.out.print(p.getUser() + " " + p.getPuntuacio() + "\n");
@@ -38,5 +45,5 @@ public class DriverHibernateHeper {
 //        u.setPassword("1234");
 //        u.setUsername("crack");
 //        HibernateHelper.save(u);
-    }
-}
+
+

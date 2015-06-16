@@ -11,7 +11,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class HibernateHelper {
@@ -164,11 +163,13 @@ public class HibernateHelper {
         session.getTransaction().commit();
 
         session.close();
-        Joc2048 j = new Joc2048();
-        for(Object o : jocList){
-            j = (Joc2048) o;
+        Joc2048 joc = new Joc2048();
+        ArrayList<Joc2048> joc2048ArrayList = (ArrayList<Joc2048>) jocList;
+        for(Joc2048 j : joc2048ArrayList){
+            System.out.print("hola");
+            joc = j;
         }
-        return j;
+        return joc;
     }
 
     public static List getCasellesPartida (int idPartida){
