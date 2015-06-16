@@ -220,6 +220,16 @@ public class HibernateHelper {
         return jugadorList;
     }
 
+    public static void updateCaselles(Casella[][] casellas){
+        for(Casella[] c : casellas){
+            for(Casella q: c){
+                update(c);
+            }
+        }
+    }
+
+
+
 //    private static List getPartidesJugador(String username){
 //        SessionFactory sf = HibernateHelper.getSessionFactory();
 //        Session session = sf.openSession();

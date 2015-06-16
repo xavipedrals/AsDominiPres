@@ -5,8 +5,7 @@ import com.company.Domini.*;
 import com.company.DataInterface.ICtrlJugador;
 import com.company.DataInterface.ICtrlUsuariRegistrat;
 import com.company.Domini.EstrategiaRanking.MillorPuntuacio;
-import com.company.Utility.HibernateHelper;
-import com.company.Utility.Pair;
+import com.company.Utility.*;
 
 import java.util.ArrayList;
 
@@ -52,7 +51,7 @@ public class JugarPartidaUseCaseController {
     }
 
 
-    public ArrayList<Integer> crearPartida(){
+    public InfoPartidaNova crearPartida(){
         Partida nova = new Partida();
             //nova.setCasellaList(generarTaulell());
             nova.setEstaacabada(false);
@@ -63,26 +62,25 @@ public class JugarPartidaUseCaseController {
             nova.setJugadorByUsername(jugadorActual);
 
         partidaActual = nova;
-        System.out.print(partidaActual.getIdpartida() + "\n");
+        //System.out.print(partidaActual.getIdpartida() + "\n");
         HibernateHelper.save(nova);
-        //Casella[][] casellas = generarTaulell();
-        nova.setCasellaList(generarTaulell());
-        //HibernateHelper.save(nova);
-        ArrayList<Integer> result = new ArrayList<Integer>();
 
-        result.add(0); //puntuacio inicial == 0;
-        result.add(jugadorActual.getMillorpuntuacio()); //millor puntuacio
-        result.addAll(nova.obteCasellesAmbNumero());
-        for (Integer i : result){
-            System.out.println("Valor al crear: " +i );
-        }
+        nova.setCasellaList(generarTaulell());
+
+
+        InfoPartidaNova result = new InfoPartidaNova();
+
+        result.setPuntuacio(0);
+        result.setMillorPuntuacio(jugadorActual.getMillorpuntuacio());
+        result.setCaselles(nova.obteCasellesAmbNumero());
+
         return result;
     }
 
     private Casella[][] generarTaulell() {
         Casella caselles[][] = new Casella[4][4];
-        int a1 = rand(0,1), b1 = rand(0,3), c1 = rand(1,2);
-        int a2 = rand(2,3), b2 = rand(0,3), c2 = rand(1,2);
+        int a1 = rand(1,2), b1 = rand(1,4), c1 = rand(1,2);
+        int a2 = rand(3,4), b2 = rand(1,4), c2 = rand(1,2);
         int n = 0;
         for (int i = 1; i < 5; i++) {
             for (int j = 1; j < 5; j++) {
@@ -103,7 +101,7 @@ public class JugarPartidaUseCaseController {
         return caselles;
     }
 
-    public ArrayList<Integer> ferMoviment(String mov){
+    public InfoPartida ferMoviment(String mov){
         switch (mov) {
             case "esq":
                 partidaActual.mouEsquerra();
@@ -118,6 +116,7 @@ public class JugarPartidaUseCaseController {
                 partidaActual.mouAvall();
                 break;
         }
+        //HibernateHelper.updateCaselles(partidaActual.getCasellaList());
         return partidaActual.actualitza(jugadorActual);
     }
 

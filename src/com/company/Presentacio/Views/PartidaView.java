@@ -1,6 +1,9 @@
 package com.company.Presentacio.Views;
 
 import com.company.Presentacio.PresentationController;
+import com.company.Utility.CasellaList;
+import com.company.Utility.CasellaScheme;
+import com.company.Utility.InfoPartidaNova;
 
 import javax.swing.*;
 import javax.swing.event.TableModelListener;
@@ -27,7 +30,7 @@ public class PartidaView extends JugarPartidaTemplate{
     private final String puntuacioAct = "Puntuacio actual: ";
     private final String puntuacioMax = "Puntuacio maxima: ";
 
-    public PartidaView(ArrayList<Integer> info){
+    public PartidaView(InfoPartidaNova info){
 
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
         centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
@@ -99,13 +102,9 @@ public class PartidaView extends JugarPartidaTemplate{
             }
         });
 
-
-        puntModel.setPuntuacioActual(info.get(0));
-        info.remove(0);
-        puntModel.setPuntuacioSiMaxima(info.get(0));
-        info.remove(0);
-        //el que queden son caselles
-        actualitzaCaselles(info);
+        puntModel.setPuntuacioSiMaxima(info.getMillorPuntuacio());
+        puntModel.setPuntuacioActual(info.getPuntuacio());
+        actualitzaCaselles(info.getCaselles());
         add(panel1);
     }
 
@@ -135,7 +134,7 @@ public class PartidaView extends JugarPartidaTemplate{
         }
 
         public void setValue(int rowIndex, int columnIndex, Object value){
-            values[rowIndex][columnIndex] = value;
+            values[rowIndex-1][columnIndex-1] = value;
         }
 
         public void resetValues(){
@@ -150,8 +149,8 @@ public class PartidaView extends JugarPartidaTemplate{
 
     private class myPuntuacioModel extends AbstractTableModel {
         public Object[][] values = {
-                {"Puntuacio actual: ",0},
-                {"Millor puntuacio: ",0}
+                {puntuacioAct,0},
+                {puntuacioMax,0}
         };
 
         @Override
@@ -185,15 +184,14 @@ public class PartidaView extends JugarPartidaTemplate{
         validate();
         repaint();
     }
-    public void actualitzaCaselles(ArrayList<Integer> p) {
+    public void actualitzaCaselles(CasellaList p) {
 
         taulellModel.resetValues();
-        int i = 0;
-        int limit = p.size();
-        while(i <= limit -2){
-            //i j valor
-            taulellModel.setValue(p.get(i),p.get(i+1),p.get(i+2));
-            i += 3;
+        for(CasellaScheme cs : p){
+            System.out.println("View fila: " + cs.getRow());
+            System.out.println("View col: " + cs.getCol());
+            System.out.println("View num: " + cs.getNum());
+            taulellModel.setValue(cs.getRow(), cs.getCol(), cs.getNum());
         }
         validate();
         repaint();

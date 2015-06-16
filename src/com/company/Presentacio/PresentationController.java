@@ -1,6 +1,7 @@
 package com.company.Presentacio;
 
 import com.company.Domini.UseCases.JugarPartidaUseCaseController;
+import com.company.Utility.InfoPartida;
 
 import java.util.ArrayList;
 
@@ -101,21 +102,20 @@ public class PresentationController {
         }
     }
 
-    public static void actualitza(ArrayList<Integer> info){
-        int guanyada = info.get(0);
-        int acabada = info.get(1);
-        int puntuacio = info.get(2);
-        if (guanyada == 1 && acabada == 1){
+    public static void actualitza(InfoPartida info){
+        boolean guanyada = info.isGuanyada();
+        boolean acabada = info.isAcabada();
+        int puntuacio = info.getPuntuacio();
+
+        if (guanyada && acabada){
             jugarPartidaFrame.mostraMenuPrincipal("Has guanyat! La teva puntuació es: " + puntuacio);
         }
-        else if(guanyada == 0 && acabada == 1){
+        else if(!guanyada && acabada){
             jugarPartidaFrame.mostraMenuPrincipal("Has perdut! :( ");
         }
         else{
-            info.remove(0); info.remove(1);
-            jugarPartidaFrame.actualitzaPuntuacio(info.get(0));
-            info.remove(0);
-            jugarPartidaFrame.actualitzaCaselles(info);
+            jugarPartidaFrame.actualitzaPuntuacio(puntuacio);
+            jugarPartidaFrame.actualitzaCaselles(info.getCaselles());
         }
     }
 

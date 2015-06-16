@@ -2,6 +2,8 @@ package com.company.Presentacio;
 
 
 import com.company.Presentacio.Views.*;
+import com.company.Utility.CasellaList;
+import com.company.Utility.InfoPartidaNova;
 import com.company.Utility.Pair;
 
 import javax.swing.*;
@@ -50,7 +52,7 @@ public class JugarPartidaFrame extends JFrame{
         canviaPanel(new MenuPrincipalView(msg));
     }
 
-    public void mostraPartida(ArrayList<Integer> x){
+    public void mostraPartida(InfoPartidaNova x){
         setTitle("Partida");
         canviaPanel(new PartidaView(x));
     }
@@ -71,9 +73,9 @@ public class JugarPartidaFrame extends JFrame{
     }
 
 
-    public static void actualitzaCaselles(ArrayList<Integer> info){
+    public static void actualitzaCaselles(CasellaList caselles){
         PartidaView p = (PartidaView) panel;
-        p.actualitzaCaselles(info);
+        p.actualitzaCaselles(caselles);
     }
 
     private void canviaPanel(JugarPartidaTemplate panel){

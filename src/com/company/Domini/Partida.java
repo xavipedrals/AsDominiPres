@@ -1,6 +1,9 @@
 package com.company.Domini;
 
 import com.company.Domini.EstrategiaRanking.IEstrategiaRanking;
+import com.company.Utility.CasellaList;
+import com.company.Utility.CasellaScheme;
+import com.company.Utility.InfoPartida;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -18,9 +21,17 @@ public class Partida {
     private Collection<Casella> casellasByIdpartida;
     private Jugador jugadorByUsername;
 
+    public Casella[][] getCasellaList() {
+        return casellaList;
+    }
+
     private Casella casellaList[][];
 
     private IEstrategiaRanking estrategiaRanking;
+
+    private int rand(int min, int max){
+        return (int) (min + (Math.random()*max));
+    }
 
     public void setCasellaList(Casella casellaList[][]) {
         this.casellaList = casellaList;
@@ -121,19 +132,22 @@ public class Partida {
         this.estrategiaRanking = estrategiaRanking;
     }
 
-    public ArrayList<Integer> obteCasellesAmbNumero() {
-        ArrayList<Integer> result = new ArrayList<Integer>();
+    public CasellaList obteCasellesAmbNumero() {
+        CasellaList result = new CasellaList();
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 if (casellaList[i][j].getNumero() != 0) {
-                    result.add(casellaList[i][j].getNumerofila());
-                    result.add(casellaList[i][j].getNumerocolumna());
-                    result.add(casellaList[i][j].getNumero());
+                    result.add(new CasellaScheme(
+                            casellaList[i][j].getNumerofila(),
+                            casellaList[i][j].getNumerocolumna(),
+                            casellaList[i][j].getNumero()
+                    ));
                 }
             }
         }
         return result;
     }
+
 
     public void mouEsquerra() {
         int k;
@@ -271,15 +285,29 @@ public class Partida {
         }
     }
 
-    public ArrayList<Integer> actualitza(Jugador jugadorActual) {
+    public InfoPartida actualitza(Jugador jugadorActual) {
         if (obteCasellesAmbNumero().size() == 16 || estaguanyada) estaacabada = true;
-        ArrayList<Integer> result = new ArrayList<Integer>();
-        if (estaguanyada) result.add(1);
-        else result.add(0);
-        if (estaacabada) result.add(1);
-        else result.add(0);
-        result.add(puntuacio);
-        result.addAll(obteCasellesAmbNumero());
+        else {
+            int a1, b1, c1;
+            boolean insert = false;
+            while (! insert) {
+                a1 = rand(1,4);
+                b1 = rand(1,4);
+                c1 = rand(1,2);
+                if (casellaList[a1-1][b1-1].getNumero() == 0) {
+                    casellaList[a1-1][b1-1].setNumero(c1*2);
+                    insert = true;
+                }
+            }
+
+        }
+        InfoPartida result = new InfoPartida();
+
+        result.setAcabada(estaacabada);
+        result.setGuanyada(estaguanyada);
+        result.setPuntuacio(puntuacio);
+        result.setCaselles(obteCasellesAmbNumero());
+
         if (estaguanyada && (jugadorActual.getMillorpuntuacio() < puntuacio))
             jugadorActual.setMillorpuntuacio(puntuacio);
         return result;
