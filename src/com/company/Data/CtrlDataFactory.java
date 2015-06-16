@@ -8,7 +8,9 @@ import com.company.DataInterface.ICtrlUsuariRegistrat;
 /**
  * Created by marcos on 13/06/2015.
  */
+//Classe Factoria de controladors
 public class CtrlDataFactory {
+    //TODO: No s'hauria de implementar singleton, com els controladors?
     private static CtrlDataFactory ctrl = new CtrlDataFactory();
 
     public static CtrlDataFactory getInstance() {

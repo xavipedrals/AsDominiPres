@@ -9,6 +9,7 @@ import java.util.ArrayList;
 /**
  * Created by marcos on 13/06/2015.
  */
+//Controlador de la classe Casella
 public class CtrlCasella implements ICtrlCasella{
 
     private static CtrlCasella instance;
@@ -19,29 +20,33 @@ public class CtrlCasella implements ICtrlCasella{
         return instance;
     }
 
-    public CtrlCasella(){
+    public CtrlCasella(){}
 
-    }
-
-
+    //Retorna totes les caselles amb el corresponent idPartida,
+    //Si no existeixen retorna una llista buida
     @Override
     public ArrayList<Casella> getCaselles(int idPartida) {
         return (ArrayList<Casella>) HibernateHelper.getCasellesPartida(idPartida);
     }
 
+    //Retorna la casella amb idPartida, numFila i numColumna corresponent,
+    //Si no existeix retorna null
     @Override
     public Casella getCasella(int idPartida, int numFila, int numColumna) {
         return HibernateHelper.getCasella(idPartida, numFila, numColumna);
     }
 
+    //Crea una casella i la guarda a la BD
     @Override
     public Casella createCasella(int id, int fila, int col, int valor) {
+        //TODO: Implementa aixo
         return null;
     }
 
+    //Guarda una casellla a la BD
     @Override
     public void saveCasella(Casella casella) {
-
+        HibernateHelper.save(casella);
     }
 
 }
