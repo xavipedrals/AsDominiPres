@@ -15,11 +15,17 @@ import java.util.Scanner;
 public class DriverHibernateHeper {
 
     public static void main(final String[] args) throws Exception {
-        JugarPartidaUseCaseController jugarPartidaUseCaseController = new JugarPartidaUseCaseController();
-        jugarPartidaUseCaseController.ferAutenticacio("xavi", "1234");
-        jugarPartidaUseCaseController.crearPartida();
-        jugarPartidaUseCaseController.obtenirRanking();
-        Scanner scanner = new Scanner(System.in);
+        Usuariregistrat u = new Usuariregistrat();
+        u.setUsername("marcos");
+        HibernateHelper.save(u);
+        u.setPassword("123456");
+        HibernateHelper.update(u);
+
+//        JugarPartidaUseCaseController jugarPartidaUseCaseController = new JugarPartidaUseCaseController();
+//        jugarPartidaUseCaseController.ferAutenticacio("xavi", "1234");
+//        jugarPartidaUseCaseController.crearPartida();
+//        jugarPartidaUseCaseController.obtenirRanking();
+//        Scanner scanner = new Scanner(System.in);
     }
 
 }

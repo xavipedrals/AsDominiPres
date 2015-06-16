@@ -129,8 +129,8 @@ public class Partida {
         this.estrategiaRanking = estrategiaRanking;
     }
 
+    //retorna un set amb la info de les caselles amb numero
     public CasellaList obteCasellesAmbNumero() {
-        //retorna un set amb la info de les caselles amb numero
         CasellaList result = new CasellaList();
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
@@ -146,10 +146,9 @@ public class Partida {
         return result;
     }
 
-
+    //tots els mou son semblants
+    //primer agafem els valors i els tirem tots cap a la direcció indicada (sense unir encara)
     public void mouEsquerra() {
-        //tots els mou son semblants
-        //primer agafem els valors i els tirem tots cap a la direcció indicada (sense unir encara)
         int k;
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {

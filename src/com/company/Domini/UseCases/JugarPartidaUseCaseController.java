@@ -8,6 +8,8 @@ import com.company.Domini.EstrategiaRanking.MillorPuntuacio;
 import com.company.Utility.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 
 /**
  * Created by marcos on 13/06/2015.
@@ -44,7 +46,6 @@ public class JugarPartidaUseCaseController {
 
     public InfoPartidaNova crearPartida(){
         Partida nova = new Partida();
-            //nova.setCasellaList(generarTaulell());
             nova.setEstaacabada(false);
             nova.setEstaguanyada(false);
             nova.setEstrategiaRanking(new MillorPuntuacio());
@@ -53,11 +54,25 @@ public class JugarPartidaUseCaseController {
             nova.setJugadorByUsername(jugadorActual);
 
         partidaActual = nova;
-        //System.out.print(partidaActual.getIdpartida() + "\n");
-        HibernateHelper.save(nova);
 
-        nova.setCasellaList(generarTaulell());
+        CtrlDataFactory.getInstance().getCtrlPartida().savePartida(nova);
 
+        Casella[][] taulell = generarTaulell();
+        nova.setCasellaList(taulell);
+        Casella[] aux = new Casella[16];
+        int i = 0;
+        for (Casella[] fila : taulell){
+            for (Casella c : fila){
+                aux[i] = c;
+                ++i;
+            }
+        }
+        ArrayList<Casella> casellas = new ArrayList<Casella>(Arrays.asList(aux));
+        for(Casella c: casellas){
+            System.out.print(c.getNumerocolumna() + "\n");
+        }
+        nova.setCasellasByIdpartida(casellas);
+        //CtrlDataFactory.getInstance().getCtrlPartida().updatePartida(nova);
 
         InfoPartidaNova result = new InfoPartidaNova();
 
@@ -70,7 +85,7 @@ public class JugarPartidaUseCaseController {
 
     private Casella[][] generarTaulell() { //crea la taula amb dos valors 2 o 4 a llocs aleatoris
         Casella caselles[][] = new Casella[4][4];
-        int a1 = rand(1,2), b1 = rand(1,4), c1 = rand(1,2);
+        int a1 = rand(1,2), b1 = rand(1,4), c1 = rand(1, 2);
         int a2 = rand(3,4), b2 = rand(1,4), c2 = rand(1,2);
         int n = 0;
         for (int i = 1; i < 5; i++) {
