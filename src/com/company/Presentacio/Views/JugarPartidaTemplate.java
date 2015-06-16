@@ -17,6 +17,7 @@ public class  JugarPartidaTemplate extends JPanel{
         add(panel, BorderLayout.CENTER);
         messageArea = new JTextField();
         messageArea.setEditable(false);
+        messageArea.setHorizontalAlignment(SwingConstants.CENTER);
         add(messageArea,BorderLayout.PAGE_END);
     }
 

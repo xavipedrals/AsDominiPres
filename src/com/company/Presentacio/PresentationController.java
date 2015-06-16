@@ -106,4 +106,8 @@ public class PresentationController {
             jugarPartidaFrame.actualitzaCaselles(info);
         }
     }
+
+    public void DEMOranking() {
+        jugarPartidaFrame.DEMORanking();
+    }
 }

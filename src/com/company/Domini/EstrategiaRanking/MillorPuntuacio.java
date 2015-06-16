@@ -16,10 +16,15 @@ public class MillorPuntuacio implements IEstrategiaRanking {
     public ArrayList<Pair> obtenirRanking() {
         ArrayList<Jugador> arrayList = (ArrayList<Jugador>) HibernateHelper.getRankingmillorsPuntuacions();
         ArrayList<Pair> result = new ArrayList<Pair>();
-        for(Jugador j : arrayList){
-            System.out.print(j.getUsername() + " " + j.getMillorpuntuacio() + "\n");
-            result.add(new Pair(j.getUsername(),j.getMillorpuntuacio()));
+        if (arrayList == null){
+            //throw new Exception("noHiHaPartides");
         }
-        return null;
+        else {
+            for (Jugador j : arrayList) {
+                System.out.print(j.getUsername() + " " + j.getMillorpuntuacio() + "\n");
+                result.add(new Pair(j.getUsername(), j.getMillorpuntuacio()));
+            }
+        }
+        return result;
     }
 }
