@@ -20,9 +20,7 @@ public class CtrlJugador implements ICtrlJugador{
         return instance;
     }
 
-
-    public CtrlJugador(){
-    }
+    public CtrlJugador(){}
 
     //Retorna tots els jugadors existents a la BD
     //Si no existeixen jugadors a la BD retorna una llista buida

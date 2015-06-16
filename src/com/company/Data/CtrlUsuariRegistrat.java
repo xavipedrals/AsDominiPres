@@ -17,20 +17,16 @@ public class CtrlUsuariRegistrat implements ICtrlUsuariRegistrat {
         return instance;
     }
 
-    public CtrlUsuariRegistrat(){
-
-    }
+    public CtrlUsuariRegistrat(){}
 
 
+    //Retorna l'usuari Registrat amb l'username corresponent
+    //Si no existeix retorna null
     @Override
     public Usuariregistrat getUsuariRegistrat(String username) {
         return HibernateHelper.getUsuariRegistrat(username);
     }
 
-    @Override
-    public void createUsuariRegistrat(String nom, String cognom, String username, String password) {
-        //TODO SOBRA¿?
-    }
 
     @Override
     public void saveUsuariRegistrat(Usuariregistrat usuariregistrat) {

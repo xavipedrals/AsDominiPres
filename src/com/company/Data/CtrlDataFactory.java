@@ -11,6 +11,7 @@ import com.company.DataInterface.ICtrlUsuariRegistrat;
 //Classe Factoria de controladors
 public class CtrlDataFactory {
     //TODO: No s'hauria de implementar singleton, com els controladors?
+    //TODO: Enlloc de new no hauria de fer Classe.getInstance?
     private static CtrlDataFactory ctrl = new CtrlDataFactory();
 
     public static CtrlDataFactory getInstance() {
