@@ -4,9 +4,7 @@ import com.company.DataInterface.ICtrlPartida;
 import com.company.Domini.Partida;
 import com.company.Utility.HibernateHelper;
 
-/**
- * Created by marcos on 13/06/2015.
- */
+
 //Controlador de la classe Partida
 public class CtrlPartida implements ICtrlPartida {
 

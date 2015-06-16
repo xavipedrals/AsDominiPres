@@ -5,22 +5,19 @@ import com.company.Data.CtrlJugador;
 import com.company.Data.CtrlPartida;
 import com.company.Data.CtrlUsuariRegistrat;
 
-/**
- * Created by marcos on 13/06/2015.
- */
 //Factoria de controladors
-public class CtrlDataFactory {
+public class ICtrlDataFactory {
 
-    private static CtrlDataFactory instance;
+    private static ICtrlDataFactory instance;
     private static ICtrlCasella casella;
     private static ICtrlJugador jugador;
     private static ICtrlPartida partida;
     private static ICtrlUsuariRegistrat ureg;
 
 
-    public static CtrlDataFactory getInstance() {
+    public static ICtrlDataFactory getInstance() {
         if(instance == null){
-            instance = new CtrlDataFactory(){};
+            instance = new ICtrlDataFactory(){};
         }
         return instance;
     }

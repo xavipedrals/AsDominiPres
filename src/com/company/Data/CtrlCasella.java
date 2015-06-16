@@ -6,9 +6,7 @@ import com.company.Utility.HibernateHelper;
 
 import java.util.ArrayList;
 
-/**
- * Created by marcos on 13/06/2015.
- */
+
 //Controlador de la classe Casella
 public class CtrlCasella implements ICtrlCasella{
 

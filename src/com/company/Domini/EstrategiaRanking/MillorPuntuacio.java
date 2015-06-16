@@ -1,15 +1,12 @@
 package com.company.Domini.EstrategiaRanking;
 
 import com.company.Domini.Jugador;
-import com.company.Domini.Partida;
 import com.company.Utility.HibernateHelper;
 import com.company.Utility.Pair;
 
 import java.util.ArrayList;
 
-/**
- * Created by marcos on 13/06/2015.
- */
+
 //Classe que serveix per obtenir el ranking per estratègia de millor puntuació
 public class MillorPuntuacio implements IEstrategiaRanking {
 

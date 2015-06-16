@@ -2,9 +2,7 @@ package com.company.Domini;
 
 import javax.persistence.*;
 
-/**
- * Created by marcos on 15/06/2015.
- */
+
 @Entity
 public class Usuariregistrat {
     private String nom;

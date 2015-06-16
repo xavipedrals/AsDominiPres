@@ -5,12 +5,9 @@ import com.company.Domini.Joc2048;
 import com.company.Domini.SingletonJoc2048;
 import com.company.Utility.HibernateHelper;
 
-/**
- * Created by marcos on 13/06/2015.
- */
+
 //Controlador de la classe 2048
 public class CtrlJoc2048 implements ICtrlJoc2048 {
-    //TODO ESTO ES EL FINDER JOC2048
     public CtrlJoc2048(){
 
     }

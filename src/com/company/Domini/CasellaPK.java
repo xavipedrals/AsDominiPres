@@ -4,9 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 import java.io.Serializable;
 
-/**
- * Created by marcos on 15/06/2015.
- */
+
 //Classe autogenerada per Hibernate, serveix per buscar caselles per clau primària a la BD
 public class CasellaPK implements Serializable {
     private int idpartida;
