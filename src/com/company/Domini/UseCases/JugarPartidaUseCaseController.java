@@ -67,7 +67,7 @@ public class JugarPartidaUseCaseController {
         HibernateHelper.save(nova);
         //Casella[][] casellas = generarTaulell();
         nova.setCasellaList(generarTaulell());
-        HibernateHelper.save(nova);
+        //HibernateHelper.save(nova);
         ArrayList<Integer> result = new ArrayList<Integer>();
 
         result.add(0); //puntuacio inicial == 0;
@@ -92,9 +92,9 @@ public class JugarPartidaUseCaseController {
                 c.setNumerofila(i);
                 c.setNumerocolumna(j);
                 c.setNumero(n);
-                //c.setPartidaByIdpartida(partidaActual);
-                System.out.print(partidaActual.getIdpartida() + "\n");
-                Partida aux = (Partida) HibernateHelper.save(c);
+                c.setIdpartida(partidaActual.getIdpartida());
+                c.setPartidaByIdpartida(partidaActual);
+                HibernateHelper.save(c);
 
                 caselles[i-1][j-1] = c;
                 n = 0;
