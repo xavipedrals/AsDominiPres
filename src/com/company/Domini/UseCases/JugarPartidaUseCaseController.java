@@ -101,7 +101,6 @@ public class JugarPartidaUseCaseController {
                 partidaActual.mouAvall();
                 break;
         }
-        //HibernateHelper.updateCaselles(partidaActual.getCasellaList());
         InfoPartida act = partidaActual.actualitza(jugadorActual);
         if (partidaActual.getEstaguanyada()) {
             //el jugador haguanyat aixi que enviem un mail
