@@ -32,8 +32,8 @@ public class RankingView extends JugarPartidaTemplate{
         list1 = new JList(listModel1);
         list2 = new JList(listModel2);
         for (Pair p : result) {
-            listModel1.addElement(p.user);
-            listModel2.addElement(p.puntuacio);
+            listModel1.addElement(p.getUser());
+            listModel2.addElement(p.getPuntuacio());
         }
 
         add(panel1);
