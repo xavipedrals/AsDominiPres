@@ -24,17 +24,15 @@ public class JugarPartidaUseCaseController {
 
     }
 
-    //Comprova que un usuari existeixi a la BD,
+    //fa el login del jugador mirant la BD i llençant exepcions si es necessari
     public void ferAutenticacio(String userN, String passwd) throws Exception{
-        //fa el login del jugador llençant exepcions si es necessari
         ICtrlUsuariRegistrat uRegCtrl = CtrlDataFactory.getCtrlUsuariRegistrat();
         Usuariregistrat uReg = uRegCtrl.getUsuariRegistrat(userN);
         if (uReg != null) {
             if (uReg.getPassword().equals(passwd)) {
-                ICtrlJugador jugadorCtrl = CtrlDataFactory.getInstance().getCtrlJugador();
-                jugadorActual = jugadorCtrl.getJugador(userN);
+                //ICtrlJugador jugadorCtrl = CtrlDataFactory.getInstance().getCtrlJugador();
+                jugadorActual = CtrlDataFactory.getInstance().getCtrlJugador().getJugador(userN);
                 if (jugadorActual == null) throw new Exception("usuariNoJugador");
-
             } else {
                 throw new Exception("pwdIncorrecte");
             }
@@ -43,15 +41,6 @@ public class JugarPartidaUseCaseController {
             throw new Exception("usernameNoExisteix");
         }
     }
-
-    public Partida getPartidaActual(){
-        return partidaActual;
-    }
-
-    public Jugador getJugadorActual(){
-        return jugadorActual;
-    }
-
 
     public InfoPartidaNova crearPartida(){
         Partida nova = new Partida();

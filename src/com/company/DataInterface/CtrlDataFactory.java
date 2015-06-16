@@ -8,6 +8,7 @@ import com.company.Data.CtrlUsuariRegistrat;
 /**
  * Created by marcos on 13/06/2015.
  */
+//Factoria de controladors
 public class CtrlDataFactory {
 
     private static CtrlDataFactory instance;
