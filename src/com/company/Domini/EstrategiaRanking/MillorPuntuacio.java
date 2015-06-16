@@ -1,6 +1,8 @@
 package com.company.Domini.EstrategiaRanking;
 
+import com.company.Domini.Jugador;
 import com.company.Domini.Partida;
+import com.company.Utility.HibernateHelper;
 import com.company.Utility.Pair;
 
 import java.util.ArrayList;
@@ -12,9 +14,12 @@ public class MillorPuntuacio implements IEstrategiaRanking {
 
     @Override
     public ArrayList<Pair> obtenirRanking() {
-        //Aqui aniria el recorrer les taules per a cada jugador
-        //S'ha de cridar a CtrlJugador i a la funció tots que retorna un arraylist, a partir d'aquí es va fent
-
+        ArrayList<Jugador> arrayList = (ArrayList<Jugador>) HibernateHelper.getRankingmillorsPuntuacions();
+        ArrayList<Pair> result = new ArrayList<Pair>();
+        for(Jugador j : arrayList){
+            System.out.print(j.getUsername() + " " + j.getMillorpuntuacio() + "\n");
+            result.add(new Pair(j.getUsername(),j.getMillorpuntuacio()));
+        }
         return null;
     }
 }

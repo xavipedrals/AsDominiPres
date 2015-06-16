@@ -1,8 +1,12 @@
 package com.company.Presentacio.Views;
 
+import com.company.Presentacio.PresentationController;
+
 import javax.swing.*;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 /**
@@ -63,8 +67,42 @@ public class PartidaView extends JugarPartidaTemplate{
         table2.setFocusable(false);
         table2.setOpaque(false);
 
+
+        UPButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PresentationController.prAmuntJugarPartida();
+            }
+        });
+
+        DOWNButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PresentationController.prAvallJugarPartida();
+            }
+        });
+
+        LEFTButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PresentationController.prEsquerraJugarPartida();
+            }
+        });
+
+        RIGHTButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PresentationController.prDretaJugarPartida();
+            }
+        });
         add(panel1);
     }
+
+
+
+
+
+
 
 
 

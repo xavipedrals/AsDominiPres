@@ -112,10 +112,8 @@ public class JugarPartidaUseCaseController {
     }
 
     public ArrayList<Pair> obtenirRanking(){
-        //todo handle exceptions
-        //TODO si partidaActual es null¿? --> no deberia mostrarse ninguna partida.
-        //todo
-        return partidaActual.obteEstrategiaRanking().obtenirRanking();
+        //Si no hi ha cap partida actual sera null, per tant per defecte retornem la estrategia de millor puntuació.
+        if (partidaActual == null ) return new MillorPuntuacio().obtenirRanking();
+        else return partidaActual.obteEstrategiaRanking().obtenirRanking();
     }
-
 }

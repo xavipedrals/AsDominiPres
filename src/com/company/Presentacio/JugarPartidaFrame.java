@@ -56,8 +56,12 @@ public class JugarPartidaFrame extends JFrame{
 
 
     public static void mostraMissatge(String txt){
+
         panel.mostraMissatge(txt);
     }
+
+
+
     public static void actualitzaCaselles(ArrayList<String> ESTOHADESERUNARRAYLISTDE3COSAS){
 
     }
