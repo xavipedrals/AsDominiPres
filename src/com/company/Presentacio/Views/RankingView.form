@@ -23,26 +23,6 @@
           <forms defaultalign-vert="false"/>
         </constraints>
       </vspacer>
-      <component id="1ca24" class="javax.swing.JList" binding="list1" default-binding="true">
-        <constraints>
-          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="50"/>
-          </grid>
-          <forms defaultalign-vert="false"/>
-        </constraints>
-        <properties>
-          <selectionBackground color="-4539718"/>
-        </properties>
-      </component>
-      <component id="115ed" class="javax.swing.JList" binding="list2" default-binding="true">
-        <constraints>
-          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="50"/>
-          </grid>
-          <forms defaultalign-vert="false"/>
-        </constraints>
-        <properties/>
-      </component>
       <component id="f9b7e" class="javax.swing.JButton" binding="menuButton" default-binding="true">
         <constraints>
           <grid row="6" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
@@ -71,6 +51,24 @@
           <font size="20"/>
           <text value="Puntuacio"/>
         </properties>
+      </component>
+      <component id="ce1e" class="javax.swing.JTable" binding="table1" default-binding="true">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="50"/>
+          </grid>
+          <forms defaultalign-horz="false" defaultalign-vert="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="3b95" class="javax.swing.JTable" binding="table2" default-binding="true">
+        <constraints>
+          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="50"/>
+          </grid>
+          <forms defaultalign-horz="false" defaultalign-vert="false"/>
+        </constraints>
+        <properties/>
       </component>
     </children>
   </grid>
