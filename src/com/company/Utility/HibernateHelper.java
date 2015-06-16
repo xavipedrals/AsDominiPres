@@ -44,12 +44,8 @@ public class HibernateHelper {
 
     // Actualitza un objecte, si no existeix tira exec
     public static Object update(Object o) {
-        SessionFactory sf = HibernateHelper.getSessionFactory();
-        Session session = sf.openSession();
-        session.beginTransaction();
-        session.merge(o);
-        session.getTransaction().commit();
-        session.close();
+        delete(o);
+        save(o);
         return o;
     }
 

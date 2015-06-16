@@ -57,22 +57,7 @@ public class JugarPartidaUseCaseController {
 
         CtrlDataFactory.getInstance().getCtrlPartida().savePartida(nova);
 
-        Casella[][] taulell = generarTaulell();
-        nova.setCasellaList(taulell);
-        Casella[] aux = new Casella[16];
-        int i = 0;
-        for (Casella[] fila : taulell){
-            for (Casella c : fila){
-                aux[i] = c;
-                ++i;
-            }
-        }
-        ArrayList<Casella> casellas = new ArrayList<Casella>(Arrays.asList(aux));
-        for(Casella c: casellas){
-            System.out.print(c.getNumerocolumna() + "\n");
-        }
-        nova.setCasellasByIdpartida(casellas);
-        //CtrlDataFactory.getInstance().getCtrlPartida().updatePartida(nova);
+        nova.setCasellaList(generarTaulell());
 
         InfoPartidaNova result = new InfoPartidaNova();
 
@@ -98,7 +83,7 @@ public class JugarPartidaUseCaseController {
                 c.setNumero(n);
                 c.setIdpartida(partidaActual.getIdpartida());
                 c.setPartidaByIdpartida(partidaActual);
-                HibernateHelper.save(c);
+                CtrlDataFactory.getInstance().getCtrlCasella().saveCasella(c);
 
                 caselles[i-1][j-1] = c;
                 n = 0;

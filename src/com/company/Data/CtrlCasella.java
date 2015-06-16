@@ -38,9 +38,8 @@ public class CtrlCasella implements ICtrlCasella{
 
     //Crea una casella i la guarda a la BD
     @Override
-    public Casella createCasella(int id, int fila, int col, int valor) {
-        //TODO: Implementa aixo
-        return null;
+    public void saveCasella(Casella casella) {
+        HibernateHelper.save(casella);
     }
 
     //Actualitza una instancia de Casella a la BD
