@@ -103,6 +103,14 @@ public class PartidaView extends JugarPartidaTemplate{
     }
 
 
+
+
+
+
+
+
+
+
     //TODO A STATIC PER PODER ACCEDIR?
     private class myTaulellModel extends AbstractTableModel {
         public Object[][] values = {
